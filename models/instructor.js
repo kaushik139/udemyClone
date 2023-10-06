@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 
 const instructorSchema = new mongoose.Schema({
     name: {
-        type:String
+        type: String
     },
     email: {
         type: String,
         required: true,
         lowercase: true,
         validate: {
-            validator: function(v) {
+            validator: function (v) {
                 /^ [\w -\.] + @([\w -] +\.) + [\w -]{ 2, 4}$/.test(v)
-        },
+            },
             message: 'Invalid E-mail!'
         }
     },
@@ -32,7 +32,7 @@ const instructorSchema = new mongoose.Schema({
         {
             courseCode: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'Course' 
+                ref: 'Course'
             },
         }
     ],
@@ -42,4 +42,4 @@ const instructorSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model("instrutor", instructorSchema)
+module.exports = mongoose.model("instructor", instructorSchema)

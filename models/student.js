@@ -1,17 +1,20 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const config = require('../config.json')
 
 const studentSchema = new mongoose.Schema({
     name: {
-        type:String
+        type: String,
+        required: true
     },
     email: {
         type: String,
         required: true,
         lowercase: true,
         validate: {
-            validator: function(v) {
-                /^ [\w -\.] + @([\w -] +\.) + [\w -]{ 2, 4}$/.test(v)
-        },
+            validator: function (v) {
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$$/.test(v)
+            },
             message: 'Invalid E-mail!'
         }
     },
@@ -21,6 +24,7 @@ const studentSchema = new mongoose.Schema({
     },
     password: {
         type: String,
+        required: true,
         validate: {
             validator: function (v) {
                 /"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/.test(v)
@@ -66,5 +70,23 @@ const studentSchema = new mongoose.Schema({
     }
 
 })
+
+
+studentSchema.pre('save', async function (next) {
+    const student = this;
+    if (student.isModified('password')) {
+        console.log('rounds:'+ config.saltRounds);
+        try {
+            const salt = await bcrypt.genSalt(config.saltRounds);
+            console.log(salt);
+            student.password = await bcrypt.hash(student.password, salt);
+            next();
+        } catch (err) {
+            next(err);
+        }
+    } else {
+        next();
+    }
+});
 
 module.exports = mongoose.model("student", studentSchema)

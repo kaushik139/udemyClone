@@ -25,7 +25,7 @@ const courseSchema = new mongoose.Schema({
     rating: [
         {
             type: Number,
-            default: 0, 
+            default: 0,
             studentId: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'student'
