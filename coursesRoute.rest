@@ -1,0 +1,35 @@
+//Create One
+POST http://localhost:3000/courses
+Content-Type: application/json
+
+{
+    "title": "qwe",
+    "description": "Content-Security-Policy",
+    "instructor": "651ffab13703e78f6a2ab422",
+    "category": "b",
+    "price": 500.00
+}
+
+###
+//Get All
+GET http://localhost:3000/courses
+
+###
+//Get One
+GET http://localhost:3000/courses/6520f3966df81d109d6591bd
+
+###
+//Update One
+PATCH http://localhost:3000/courses/6520f3966df81d109d6591bd
+Content-Type: application/json
+
+{
+    "title": "new title",
+    "description": "new D",
+    "category": "new Cat",
+    "price": 0.1
+}
+
+###
+//Delete One
+DELETE http://localhost:3000/courses/6520f3966df81d109d6591bd

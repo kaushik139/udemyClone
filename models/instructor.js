@@ -10,8 +10,8 @@ const instructorSchema = new mongoose.Schema({
         lowercase: true,
         validate: {
             validator: function (v) {
-                /^ [\w -\.] + @([\w -] +\.) + [\w -]{ 2, 4}$/.test(v)
-            },
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+                .test(v)            },
             message: 'Invalid E-mail!'
         }
     },
@@ -23,7 +23,8 @@ const instructorSchema = new mongoose.Schema({
         type: String,
         validate: {
             validator: function (v) {
-                /"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/.test(v)
+                return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+                .test(v)
             },
             message: 'Password must contain minimum eight characters, at least one letter and one number'
         }

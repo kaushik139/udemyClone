@@ -8,10 +8,10 @@ async function controller(req, res) {
     })
     try {
         const saveInstructor = await newInstructor.save()
-        res.status(201).json(saveInstructor)
+        res.status(201).json(saveInstructor + { message: "New Instructor Signup!" })
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
 }
 
-module.exports = {controller}
+module.exports = { controller }

@@ -1,41 +1,44 @@
 const express = require('express')
 const router = express.Router()
 const student = require('../models/student')
+const middleware = require('./middlewares')
 
 const getAll = require('../controllers/students/getAll')
 const getOne = require('../controllers/students/getOne')
 const create = require('../controllers/students/createNew')
 const update = require('../controllers/students/update')
 const remove = require('../controllers/students/delete')
+const signup = require('../controllers/students/signup')
+const login = require('../controllers/students/login')
 
 //Getting All
-router.get('/', getAll.getAll)
+router.get('/', getAll.controller)
 
 //Getting One
-router.get('/:id', getStudent, getOne.getOne);
+router.get('/:id', (req, res, next) => {
+    middleware.getItemById(student, 'student', req, res, next);
+}, getOne.controller);
 
 //Creating One
-router.post('/', create.create)
+router.post('/', create.controller)
 
 // Updating one
-router.patch('/:id', getStudent, update.update)
+router.patch('/:id', (req, res, next) => {
+    middleware.getItemById(student, 'student', req, res, next);
+}, update.controller);
 
 //Deleting One
-router.delete('/:id', getStudent, remove.remove)
+router.delete('/:id', (req, res, next) => {
+    middleware.getItemById(student, 'student', req, res, next);
+}, remove.controller);
 
-//middleWare
-async function getStudent(req, res, next) {
-    let findStudent;
-    try {
-        findStudent = await student.findById(req.params.id)
-        if (findStudent === null) {
-            return res.status(404).json({ message: 'Student not Found!' })
-        }
-    } catch (err) {
-        return res.status(500).json({ message: err.message });
-    }
-    res.student = findStudent;
-    next();
-}
+//SignUp
+router.post('/newSignup', (req, res, next) => {
+    middleware.checkEmail(student, req, res, next);
+}, signup.controller);
+
+//Login
+router.post('/login', login.controller)
+
 
 module.exports = router 

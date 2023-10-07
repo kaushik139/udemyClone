@@ -1,6 +1,7 @@
 const instructor = require('../../models/instructor')
 
-async function getOne(req, res) {
+async function controller(req, res) {
+    console.log("controller");
     try {
         res.json({ name: res.instructor });
     } catch (err) {
@@ -8,4 +9,4 @@ async function getOne(req, res) {
     }
 }
 
-module.exports = {getOne}
+module.exports = {controller}

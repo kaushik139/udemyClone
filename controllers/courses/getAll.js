@@ -1,9 +1,9 @@
-const student = require('../../models/student')
+const Courses = require('../../models/courses')
 
 async function controller(req, res) {
     try {
-        const students = await student.find()
-        res.json(students)
+        const courses = await Courses.find()
+        res.json(courses)
     } catch (err) {
         res.status(500).json({ message: err.message })
     }

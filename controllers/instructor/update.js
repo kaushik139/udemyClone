@@ -1,6 +1,6 @@
 const instructor = require('../../models/instructor')
 
-async function update(req, res) {
+async function controller(req, res) {
     if (req.body.name !== null) {
         res.instructor.name = req.body.name
     }
@@ -8,7 +8,7 @@ async function update(req, res) {
         res.instructor.email = req.body.email
     }
     try {
-        res.instructor.save();
+        await res.instructor.save();
         res.status(200).json({
             message: "Instructor Updated!"})
     } catch (err) {
@@ -16,4 +16,4 @@ async function update(req, res) {
     }
 }
 
-module.exports = {update}
+module.exports = {controller}

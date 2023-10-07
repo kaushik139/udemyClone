@@ -1,15 +1,13 @@
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const config = require('./config.json');
 
 const studentsRouter = require('./routes/students')
 const instructorsRouter = require('./routes/instructor')
-
-
-// const config = require('./config.json')
-// const student = require('./models/student');
-// const instructor = require('./models/instructor');
-// const course = require('./models/courses');
+const coursesRouter = require('./routes/courses')
+const jwtKey = config.jwtKEY;
 
 const app = express()
 
@@ -23,6 +21,7 @@ db.once('open', () => console.log('Connected to Database'));
 app.use(express.json())
 app.use('/students', studentsRouter)
 app.use('/instructors', instructorsRouter)
+app.use('/courses', coursesRouter)
 
 
 app.listen(3000, () => {

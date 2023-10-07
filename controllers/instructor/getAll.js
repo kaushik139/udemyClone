@@ -1,6 +1,6 @@
 const instructor = require('../../models/instructor')
 
-async function getAll(req, res) {
+async function controller(req, res) {
     try {
         const instructors = await instructor.find()
         res.json(instructors)
@@ -8,5 +8,5 @@ async function getAll(req, res) {
         res.status(500).json({ message: err.message })
     }
 }
-module.exports = {getAll}
+module.exports = {controller}
 

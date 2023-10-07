@@ -1,6 +1,6 @@
 const student = require('../../models/student')
 
-async function update(req, res) {
+async function controller(req, res) {
     if (req.body.name !== null) {
         res.student.name = req.body.name
     }
@@ -16,4 +16,4 @@ async function update(req, res) {
     }
 }
 
-module.exports = {update}
+module.exports = {controller}

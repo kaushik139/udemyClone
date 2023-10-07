@@ -13,7 +13,8 @@ const studentSchema = new mongoose.Schema({
         lowercase: true,
         validate: {
             validator: function (v) {
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$$/.test(v)
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+                .test(v)
             },
             message: 'Invalid E-mail!'
         }
@@ -27,7 +28,7 @@ const studentSchema = new mongoose.Schema({
         required: true,
         validate: {
             validator: function (v) {
-                /"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/.test(v)
+                return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(v)
             },
             message: 'Password must contain minimum eight characters, at least one letter and one number'
         }
@@ -75,10 +76,10 @@ const studentSchema = new mongoose.Schema({
 studentSchema.pre('save', async function (next) {
     const student = this;
     if (student.isModified('password')) {
-        console.log('rounds:'+ config.saltRounds);
+        // console.log('rounds:'+ config.saltRounds);
         try {
             const salt = await bcrypt.genSalt(config.saltRounds);
-            console.log(salt);
+            // console.log(salt);
             student.password = await bcrypt.hash(student.password, salt);
             next();
         } catch (err) {
