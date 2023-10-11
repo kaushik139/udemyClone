@@ -8,6 +8,7 @@ const create = require('../controllers/instructor/createNew')
 const update = require('../controllers/instructor/update')
 const remove = require('../controllers/instructor/delete')
 const signup = require('../controllers/instructor/signup')
+const login = require('../controllers/instructor/login')
 
 const middleware = require('./middlewares')
 
@@ -36,6 +37,9 @@ router.delete('/:id', (req, res, next) => {
 router.post('/newSignup', (req, res, next) => {
     middleware.checkEmail(instructor, req, res, next); 
 }, signup.controller);
+
+//Login
+router.post('/login', login.controller)
 
 
 module.exports = router

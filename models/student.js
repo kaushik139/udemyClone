@@ -30,7 +30,7 @@ const studentSchema = new mongoose.Schema({
             validator: function (v) {
                 return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(v)
             },
-            message: 'Password must contain minimum eight characters, at least one letter and one number'
+            message: 'Password must contain minimum eight characters, at least one letter and one number.'
         }
     },
     currentCourse: {
@@ -76,10 +76,8 @@ const studentSchema = new mongoose.Schema({
 studentSchema.pre('save', async function (next) {
     const student = this;
     if (student.isModified('password')) {
-        // console.log('rounds:'+ config.saltRounds);
         try {
             const salt = await bcrypt.genSalt(config.saltRounds);
-            // console.log(salt);
             student.password = await bcrypt.hash(student.password, salt);
             next();
         } catch (err) {

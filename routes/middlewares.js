@@ -17,6 +17,7 @@ async function checkEmail(model, req, res, next) {
     try {
         const item = await model.findOne({ email: req.body.email });
         if (item !== null) {
+            console.log('lll');
             return res.status(422).json({ message: "E-mail already exists!" })
         }
         else {
@@ -28,10 +29,15 @@ async function checkEmail(model, req, res, next) {
     }
 }
 
-
+//Token generation
+// async function generateToken(user) {
+//     const token = jwt.sign({ id: user.id, username: user.name }, config.jwtKEY);
+//             res.json({ token });  
+// }
 
 
 module.exports = {
     checkEmail,
-    getItemById
+    getItemById,
+    // generateToken
 }

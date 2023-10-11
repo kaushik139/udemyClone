@@ -1,4 +1,4 @@
-const instructor = require('../../models/instructor')
+// const instructor = require('../../models/instructor')
 
 async function controller(req, res) {
     if (req.body.name !== null) {
@@ -6,6 +6,9 @@ async function controller(req, res) {
     }
     if (req.body.email !== null) {
         res.instructor.email = req.body.email
+    }
+    if (req.body.password !== null) {
+        res.instructor.password = req.body.password
     }
     try {
         await res.instructor.save();

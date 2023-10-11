@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const config = require('../config.json')
+const bcrypt = require('bcrypt');
 
 const instructorSchema = new mongoose.Schema({
     name: {
@@ -40,7 +42,22 @@ const instructorSchema = new mongoose.Schema({
     bio: {
         type: String,
     },
-
 })
+
+
+instructorSchema.pre('save', async function (next) {
+    const instructor = this;
+    if (instructor.isModified('password')) {
+        try {
+            const salt = await bcrypt.genSalt(config.saltRounds);
+            instructor.password = await bcrypt.hash(instructor.password, salt);
+            next();
+        } catch (err) {
+            next(err);
+        }
+    } else {
+        next();
+    }
+});
 
 module.exports = mongoose.model("instructor", instructorSchema)
