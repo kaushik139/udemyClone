@@ -3,10 +3,12 @@ const course = require('../../models/courses')
 async function controller(req, res) {
     const newCourse = new course({
         title: req.body.title,
-        description: req.body.description,
+        description: { miniDescription: req.body.miniDescription },
         instructor: req.body.instructor,
         category: req.body.category,
-        price: req.body.price
+        price: 0,
+        status: 'draft',
+        
     })
     try {
         const saveCourse = await newCourse.save()

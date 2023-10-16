@@ -4,10 +4,9 @@ Content-Type: application/json
 
 {
     "title": "qwe",
-    "description": "Content-Security-Policy",
-    "instructor": "651ffab13703e78f6a2ab422",
-    "category": "b",
-    "price": 500.00
+    "miniDescription": "Content-Security-Policy",
+    "instructor": "65254b0c03bcab8b63d2e8a7",
+    "category": "b"
 }
 
 ###

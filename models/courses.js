@@ -6,8 +6,13 @@ const courseSchema = new mongoose.Schema({
         required: true,
     },
     description: {
-        type: String,
-        required: true,
+        miniDescription: {
+            type: String,
+            required: true,
+        },
+        fullDescription: {
+            type: String,
+        }
     },
     instructor: {
         type: mongoose.Schema.Types.ObjectId,
@@ -45,6 +50,10 @@ const courseSchema = new mongoose.Schema({
             duration: Number,
         }
     ],
+    status: {
+        type: String,
+        required: true,
+    }
 });
 
 module.exports = mongoose.model("Course", courseSchema);

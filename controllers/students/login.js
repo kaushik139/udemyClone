@@ -5,16 +5,16 @@ const jwt = require('jsonwebtoken');
 const chalk = require('chalk')
 
 async function controller(req, res) {
-    console.log(chalk.green.bgBlackBright('Login Triggered!'));
+    console.log(chalk.green.bgBlackBright('Login Triggered! '+Date().slice(15,25)));
     const user = await student.findOne({ email: req.body.email });
     if (user) {
         passwordMatch = await bcrypt.compare(req.body.password, user.password);
 
         if (passwordMatch) {
-            const token = jwt.sign({ id: user.id, username: user.name }, config.jwtKEY);
+            const token = jwt.sign({ id: user.id, username: user.name }, config.jwtKEY, {expiresIn: '1m'});
             
             console.log(chalk.yellowBright("Token: " + token));
-            res.status(202).json({ token: token });
+            res.status(202).json({ token: token , name: user.name});
         }
         else {
             res.status(401).json({ message: "Password Incorrect" })
