@@ -7,6 +7,7 @@ const chalk = require('chalk')
 async function controller(req, res) {
     console.log(chalk.green.bgBlackBright('Login Triggered! '+Date().slice(15,25)));
     const user = await student.findOne({ email: req.body.email });
+    // console.log(user.name);
     if (user) {
         passwordMatch = await bcrypt.compare(req.body.password, user.password);
 

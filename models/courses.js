@@ -24,8 +24,27 @@ const courseSchema = new mongoose.Schema({
         required: true,
     },
     price: {
-        type: Number,
+        basePrice: {
+            type: Number,
         required: true,
+        },
+        discountType: {
+            type: String
+        },
+        discountAmount: {
+            type: Number,
+        },
+        discountPercent: {
+            type: Number,
+        },
+        tax: {
+            type: Number,
+        required: true,
+        },
+        finalAmount: {
+            type: Number,
+        required: true,
+        }
     },
     rating: [
         {

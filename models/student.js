@@ -28,7 +28,8 @@ const studentSchema = new mongoose.Schema({
         required: true,
         validate: {
             validator: function (v) {
-                return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(v)
+                return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+                .test(v)
             },
             message: 'Password must contain minimum eight characters, at least one letter and one number.'
         }

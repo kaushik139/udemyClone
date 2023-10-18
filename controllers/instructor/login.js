@@ -14,7 +14,8 @@ async function controller(req, res) {
             const token = jwt.sign({ id: user.id, username: user.name }, config.jwtKEY);
             
             console.log(chalk.yellowBright("Token: " + token));
-            res.status(202).json({ token: token });
+            console.log(chalk.yellowBright("Name: " + user.name));
+            res.status(202).json({ token: token , name: user.name});
         }
         else {
             res.status(401).json({ message: "Password Incorrect" })

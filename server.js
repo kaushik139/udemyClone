@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const chalk = require('chalk')
 
 const studentsRouter = require('./routes/students')
 const instructorsRouter = require('./routes/instructor')
@@ -24,5 +25,5 @@ app.use('/courses', coursesRouter)
 
 
 app.listen(process.env.port, () => {
-    console.log('Listening on Port 3000!');
+    console.log(chalk.red.bgYellowBright('Listening on Port 3000!'+Date().slice(15,25)));
 })

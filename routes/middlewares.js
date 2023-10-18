@@ -1,3 +1,19 @@
+const multer = require('multer');
+const path = require('path');
+
+// code for Multer
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'public/uploads/');
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.originalname);
+    },
+  });
+  
+  const upload = multer({ storage: storage });
+
+
 //finding item by id
 async function getItemById(model, itemName, req, res, next) {
     try {
@@ -17,7 +33,6 @@ async function checkEmail(model, req, res, next) {
     try {
         const item = await model.findOne({ email: req.body.email });
         if (item !== null) {
-            console.log('lll');
             return res.status(422).json({ message: "E-mail already exists!" })
         }
         else {
@@ -39,5 +54,6 @@ async function checkEmail(model, req, res, next) {
 module.exports = {
     checkEmail,
     getItemById,
+    upload
     // generateToken
 }

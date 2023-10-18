@@ -15,18 +15,40 @@ GET http://localhost:3000/courses
 
 ###
 //Get One
-GET http://localhost:3000/courses/6520f3966df81d109d6591bd
+GET http://localhost:3000/courses/652f7494878a0f8bd862e5b7
 
 ###
 //Update One
-PATCH http://localhost:3000/courses/6520f3966df81d109d6591bd
+PATCH http://localhost:3000/courses/652f7494878a0f8bd862e5b7
 Content-Type: application/json
 
 {
     "title": "new title",
-    "description": "new D",
     "category": "new Cat",
-    "price": 0.1
+    "id": "ys223d368dg73287g3"
+}
+
+###
+//update pricing
+PATCH http://localhost:3000/courses/pricing/652f7494878a0f8bd862e5b7
+Content-Type: application/json
+
+{
+    "basePrice": 110,
+    "discountType": "amount",
+    "discountAmount": 22,
+    "discountPercent": null,
+    "tax": 15,
+    "finalAmount": 455
+}
+
+###
+//Landing Page cereation w/o image
+PATCH http://localhost:3000/courses/landingPage/652f7494878a0f8bd862e5b7
+Content-Type: application/json
+
+{
+    "fullDescription": "Lorem ipsum dolor sit amet"
 }
 
 ###

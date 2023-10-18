@@ -1,22 +1,22 @@
 const courses = require('../../models/courses')
+const chalk = require('chalk')
 
 async function controller(req, res) {
-    if (req.body.name !== null) {
-        res.course.title = req.body.title
-    }
-    if (req.body.description !== null) {
-        res.course.description = req.body.description
+   
+    console.log(req.body)
+    console.log(chalk.red(res.courses));
+   
+
+    if (req.body.title !== null) {
+        res.courses.title = req.body.title
     }
     if (req.body.category !== null) {
-        res.course.category = req.body.category
-    }
-    if (req.body.price !== null) {
-        res.course.price = req.body.price
+        res.courses.category = req.body.category
     }
     try {
-        res.course.save();
+        res.courses.save();
         res.status(200).json({
-            message: "Course Updated!"})
+            message: "Course Updated!", updatedCourse: res.courses})
     } catch (err) {
         return res.status(400).json({ message: err.message });
     }
