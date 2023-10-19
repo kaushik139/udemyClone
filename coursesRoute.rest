@@ -3,9 +3,9 @@ POST http://localhost:3000/courses
 Content-Type: application/json
 
 {
-    "title": "qwe",
+    "title": "test",
     "miniDescription": "Content-Security-Policy",
-    "instructor": "65254b0c03bcab8b63d2e8a7",
+    "instructor": "652d2339759a9ce87d3853a3",
     "category": "b"
 }
 
@@ -49,6 +49,17 @@ Content-Type: application/json
 
 {
     "fullDescription": "Lorem ipsum dolor sit amet"
+}
+
+###
+//Update Section
+PATCH http://localhost:3000/courses/section/652f7494878a0f8bd862e5b7
+Content-Type: application/json
+
+{
+    "title": "new title",
+    "sectionDescription": "new Cat"
+   
 }
 
 ###

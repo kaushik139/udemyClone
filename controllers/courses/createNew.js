@@ -4,8 +4,8 @@ const chalk = require('chalk');
 
 async function controller(req, res) {
 
-    const user = await instructor.findOne({ email: req.body.email });
-    const courseExists = await course.findOne({ title: req.body.title, instructor: user._id });
+    const user = await instructor.findOne({ _id: req.body.instructor });
+    const courseExists = await course.findOne({ title: req.body.title, instructor: req.body.instructor });
 
     if (courseExists) {
         console.log(chalk.red.bgYellowBright('Course: "' + req.body.title + '" already exists for user: "' + user.name + '"'));

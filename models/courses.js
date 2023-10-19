@@ -59,14 +59,31 @@ const courseSchema = new mongoose.Schema({
     duration: {
         type: Number,
     },
-    thumbnail: {
-        type: String,
+    images: {
+        thumbnail: {
+            type: String,
+        },
+        bgImage: {
+            type: String,
+        }
     },
-    lectures: [
+    sections: [
         {
             title: String,
-            videoURL: String,
-            duration: Number,
+            sectionDesctiption: String,
+            videos: [
+                {
+                    title: String,
+                    path: String,
+
+                }
+            ],
+            exercises: [
+                {
+                    title: String,
+                    path: String
+                }
+            ]
         }
     ],
     status: {

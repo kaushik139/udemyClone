@@ -22,8 +22,9 @@ app.use(cors())
 app.use('/students', studentsRouter)
 app.use('/instructors', instructorsRouter)
 app.use('/courses', coursesRouter)
-
+app.use('/images', express.static('public/Images'));
 
 app.listen(process.env.port, () => {
-    console.log(chalk.red.bgYellowBright('Listening on Port 3000!'+Date().slice(15,25)));
+    console.log(chalk.red.bgYellowBright('Listening on Port 3000!' + Date().slice(15, 25)));
 })
+
