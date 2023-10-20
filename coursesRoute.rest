@@ -15,7 +15,7 @@ GET http://localhost:3000/courses
 
 ###
 //Get One
-GET http://localhost:3000/courses/652f7494878a0f8bd862e5b7
+GET http://localhost:3000/courses/65312a12776e78de030d7c1f
 
 ###
 //Update One
@@ -52,12 +52,12 @@ Content-Type: application/json
 }
 
 ###
-//Update Section
-PATCH http://localhost:3000/courses/section/652f7494878a0f8bd862e5b7
+//UpdateAllInOne for section name and description
+PATCH http://localhost:3000/courses/updateAll/65312a12776e78de030d7c1f
 Content-Type: application/json
 
 {
-    "title": "new title",
+    "sectionTitle": "new title",
     "sectionDescription": "new Cat"
    
 }

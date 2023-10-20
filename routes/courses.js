@@ -9,7 +9,7 @@ const update = require('../controllers/courses/update')
 const updatePricing = require('../controllers/courses/updatePricing')
 const landingPage = require('../controllers/courses/landingPage')
 const bgImage = require('../controllers/courses/bgImage')
-const section = require('../controllers/courses/section')
+const UpdateAllInOne = require('../controllers/courses/UpdateAllInOne')
 const remove = require('../controllers/courses/delete')
 
 const middleware = require('./middlewares')
@@ -46,9 +46,9 @@ router.patch('/landingPageImage/:id', middleware.upload.single('fileInput'), (re
 }, bgImage.controller);
 
 // Updating Section
-router.patch('/section/:id', (req, res, next) => {
+router.patch('/updateAll/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
-}, section.controller)
+}, UpdateAllInOne.controller)
 
 //Deleting One
 router.delete('/:id', (req, res, next) => {

@@ -69,7 +69,7 @@ const courseSchema = new mongoose.Schema({
     },
     sections: [
         {
-            title: String,
+            sectionTitle: String,
             sectionDesctiption: String,
             videos: [
                 {

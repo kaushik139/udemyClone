@@ -3,14 +3,15 @@ const instructor = require('../../models/instructor')
 const chalk = require('chalk');
 
 async function controller(req, res) {
+    // console.log(chalk.green.bgRed(req.body.courseId+'  :qq'));
 
-    const user = await instructor.findOne({ _id: req.body.instructor });
-    const courseExists = await course.findOne({ title: req.body.title, instructor: req.body.instructor });
+    const user = await instructor.findOne({ email: req.body.email });
+    const courseExists = await course.findOne({ _id: req.body.courseId, instructor: req.body.instructor });
 
     if (courseExists) {
-        console.log(chalk.red.bgYellowBright('Course: "' + req.body.title + '" already exists for user: "' + user.name + '"'));
+        console.log(chalk.red.bgYellowBright('Course already exist'));
 
-        res.status(409).json({ message: 'Course: "' + req.body.title + '" already exists for user: "' + user.name + '"' })
+        res.status(409).json({ message: 'Course already exists'})
     }
     else {
 
