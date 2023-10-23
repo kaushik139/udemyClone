@@ -9,8 +9,13 @@ const update = require('../controllers/courses/update')
 const updatePricing = require('../controllers/courses/updatePricing')
 const landingPage = require('../controllers/courses/landingPage')
 const bgImage = require('../controllers/courses/bgImage')
-const UpdateAllInOne = require('../controllers/courses/UpdateAllInOne')
+const CreateSection = require('../controllers/courses/Section/CreateSection')
+const UpdateSection = require('../controllers/courses/Section/UpdateSection')
+const createVideoLecture = require('../controllers/courses/Videos/createVideoLecture')
+const updateVideoLecture = require('../controllers/courses/Videos/updateVideoLecture')
 const remove = require('../controllers/courses/delete')
+const removeSection = require('../controllers/courses/Section/deleteSection')
+
 
 const middleware = require('./middlewares')
 
@@ -45,15 +50,35 @@ router.patch('/landingPageImage/:id', middleware.upload.single('fileInput'), (re
   middleware.getItemById(courses, 'courses', req, res, next);
 }, bgImage.controller);
 
-// Updating Section
-router.patch('/updateAll/:id', (req, res, next) => {
+// creating Section
+router.patch('/CreateSection/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
-}, UpdateAllInOne.controller)
+}, CreateSection.controller)
+
+// creating videoLecture
+router.patch('/createVideoLecture/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, createVideoLecture.controller)
+
+// update videoLecture
+router.patch('/updateVideoLecture/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, updateVideoLecture.controller)
+
+// Updating Section
+router.patch('/UpdateSection/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, UpdateSection.controller)
 
 //Deleting One
 router.delete('/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, remove.controller)
+
+//Deleting Section
+router.delete('/deleteSection/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, removeSection.controller)
 
 
 module.exports = router;

@@ -2,7 +2,7 @@
 
 async function controller(req, res) {
     try {
-        await res.course.deleteOne();
+        await res.courses.deleteOne();
         res.json({ message: 'Course Deleted!' })
     } catch (err) {
         return res.status(500).json({ message: err.message });

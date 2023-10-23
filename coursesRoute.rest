@@ -52,8 +52,8 @@ Content-Type: application/json
 }
 
 ###
-//UpdateAllInOne for section name and description
-PATCH http://localhost:3000/courses/updateAll/65312a12776e78de030d7c1f
+//CreateContent for section name and description
+PATCH http://localhost:3000/courses/CreateContent/653126234d97a1f6a3c23885
 Content-Type: application/json
 
 {
@@ -63,5 +63,24 @@ Content-Type: application/json
 }
 
 ###
+//Create video lecture
+PATCH http://localhost:3000/courses/createVideoLecture/653126234d97a1f6a3c23885
+Content-Type: application/json
+
+{
+    "videoTitle": "new title"
+   
+}
+
+###
 //Delete One
 DELETE http://localhost:3000/courses/6520f3966df81d109d6591bd
+
+###
+//DeleteSection
+DELETE http://localhost:3000/courses/deleteSection/653126234d97a1f6a3c23885
+Content-Type: application/json
+
+{
+    "index": "1"
+}
