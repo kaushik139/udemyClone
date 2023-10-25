@@ -4,8 +4,8 @@ const chalk = require('chalk')
 async function controller(req, res) {
 
     console.log(chalk.red('UpdatingPrice: '));
-    console.log(req.body.basePrice);
-    console.log(res.courses.price);
+    // console.log(req.body.basePrice);
+    // console.log(res.courses.price);
     
     if (req.body.basePrice !== null && req.body.tax !== null && req.body.finalAmount !== null) {
         res.courses.price.basePrice = req.body.basePrice
@@ -19,7 +19,7 @@ async function controller(req, res) {
             res.courses.save();
             res.status(200).json({ message: "Course Updated!" })
             console.log(chalk.bgWhiteBright('updated Course: '));
-            console.log(courses);
+            // console.log(courses);
         } catch (err) {
             return res.status(400).json({ message: err.message });
         }

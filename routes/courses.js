@@ -13,8 +13,10 @@ const CreateSection = require('../controllers/courses/Section/CreateSection')
 const UpdateSection = require('../controllers/courses/Section/UpdateSection')
 const createVideoLecture = require('../controllers/courses/Videos/createVideoLecture')
 const updateVideoLecture = require('../controllers/courses/Videos/updateVideoLecture')
+const videoUpload = require('../controllers/courses/Videos/videoUpload')
 const remove = require('../controllers/courses/delete')
 const removeSection = require('../controllers/courses/Section/deleteSection')
+const removeVideoLecture = require('../controllers/courses/Videos/deleteVideo')
 
 
 const middleware = require('./middlewares')
@@ -65,6 +67,11 @@ router.patch('/updateVideoLecture/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, updateVideoLecture.controller)
 
+//uploading Lecture Video
+router.patch('/videoUpload/:id', middleware.upload2.single('fileInput'), (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, videoUpload.controller);
+
 // Updating Section
 router.patch('/UpdateSection/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
@@ -79,6 +86,11 @@ router.delete('/:id', (req, res, next) => {
 router.delete('/deleteSection/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, removeSection.controller)
+
+//Deleting Video Lecture
+router.delete('/deleteVideoLecture/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, removeVideoLecture.controller)
 
 
 module.exports = router;

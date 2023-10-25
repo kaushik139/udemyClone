@@ -5,11 +5,10 @@ async function controller(req, res) {
     try {
         // console.log(res.courses);
 
-            // Check if there's an uploaded file
             if (req.file) {
                 // console.log(req.file.path);
                 // console.log(req.file.filename);
-                res.courses.images.bgImage = req.file.filename; // Store the file path in the database
+                res.courses.images.bgImage = req.file.filename; 
             }
 
             await res.courses.save();

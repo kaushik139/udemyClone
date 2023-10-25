@@ -4,3 +4,5 @@ config.json
 route.rest
 instructorRoute.rest
 courseRoute.rest
+public/Images
+public/Videos

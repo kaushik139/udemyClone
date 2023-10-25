@@ -35,7 +35,7 @@ async function controller(req, res) {
             const saveCourse = await newCourse.save();
             res.status(201).json({ message: 'New Course Added', id: saveCourse._id })
             console.log(chalk.white.bgGreenBright('New Course Added!'));
-            console.log(saveCourse);
+            // console.log(saveCourse);
             // console.log('saveCourseID: '+saveCourse._id);
         } catch (err) {
             console.log(err);

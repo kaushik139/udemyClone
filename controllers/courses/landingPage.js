@@ -2,7 +2,7 @@ const courses = require('../../models/courses');
 const chalk = require('chalk');
 
 async function controller(req, res) {
-    console.log(req.body.desc);
+    // console.log(req.body.desc);
 
     try {
         if (req.body.desc) {

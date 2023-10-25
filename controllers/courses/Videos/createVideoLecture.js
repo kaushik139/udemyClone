@@ -3,9 +3,9 @@ const chalk = require('chalk')
 
 async function controller(req, res) {
 
-    console.log(req.body)
-    console.log(req.body.videoTitle)
-    console.log(req.body.sectionIndex);
+    // console.log(req.body)
+    // console.log(req.body.videoTitle)
+    // console.log(req.body.sectionIndex);
     // console.log(chalk.red(res.courses));
     // console.log(res.courses.sections[req.body.sectionIndex]);
 
@@ -16,8 +16,8 @@ async function controller(req, res) {
 
     try {
         res.courses.save();
-        console.log(chalk.yellowBright(res.courses.sections));
-        res.status(200).send({ message: "Course Created!" })
+        // console.log(chalk.yellowBright(res.courses.sections));
+        res.status(200).send({ message: "Video Created!" })
     } catch (err) {
         return res.status(400).json({ message: err.message });
     }

@@ -1,7 +1,7 @@
 const multer = require('multer');
 const path = require('path');
 
-// code for Multer
+// code for Multer Images
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, 'public/Images/');
@@ -11,7 +11,20 @@ const storage = multer.diskStorage({
     },
   });
   
-  const upload = multer({ storage: storage });
+const upload = multer({ storage: storage });
+  
+// code for Multer Videos
+const storage2 = multer.diskStorage({
+  destination: (req, file, cb) => {
+      console.log(req.body);
+      cb(null, 'public/Videos/');
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.originalname);
+    },
+  });
+  
+  const upload2 = multer({ storage: storage2 });
 
 
 //finding item by id
@@ -54,6 +67,7 @@ async function checkEmail(model, req, res, next) {
 module.exports = {
     checkEmail,
     getItemById,
-    upload
+    upload,
+    upload2
     // generateToken
 }

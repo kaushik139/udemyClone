@@ -3,8 +3,8 @@ const chalk = require('chalk')
 
 async function controller(req, res) {
    
-    console.log(req.body)
-    console.log(chalk.red(res.courses));
+    // console.log(req.body)
+    // console.log(chalk.red(res.courses));
    
 
     if (req.body.title !== null) {

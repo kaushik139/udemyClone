@@ -15,9 +15,9 @@ async function controller(req, res) {
 
     try {
         res.courses.save();
-        console.log(chalk.yellowBright(res.courses.sections));
+        // console.log(chalk.yellowBright(res.courses.sections));
         res.status(200).json({
-            message: "Course Updated!", updatedCourse: res.courses
+            message: "Section Created!", updatedCourse: res.courses
         })
     } catch (err) {
         return res.status(400).json({ message: err.message });
