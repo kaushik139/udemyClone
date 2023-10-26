@@ -81,7 +81,7 @@ const courseSchema = new mongoose.Schema({
             exercises: [
                 {
                     title: String,
-                    path: String
+                    description: String
                 }
             ]
         }

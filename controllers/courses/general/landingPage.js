@@ -1,4 +1,4 @@
-const courses = require('../../models/courses');
+const courses = require('../../../models/courses');
 const chalk = require('chalk');
 
 async function controller(req, res) {

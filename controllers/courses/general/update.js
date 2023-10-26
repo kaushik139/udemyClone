@@ -1,11 +1,11 @@
-const courses = require('../../models/courses')
+const courses = require('../../../models/courses')
 const chalk = require('chalk')
 
 async function controller(req, res) {
-   
+
     // console.log(req.body)
     // console.log(chalk.red(res.courses));
-   
+
 
     if (req.body.title !== null) {
         res.courses.title = req.body.title
@@ -16,10 +16,11 @@ async function controller(req, res) {
     try {
         res.courses.save();
         res.status(200).json({
-            message: "Course Updated!", updatedCourse: res.courses})
+            message: "Course Updated!", updatedCourse: res.courses
+        })
     } catch (err) {
         return res.status(400).json({ message: err.message });
     }
 }
 
-module.exports = {controller}
+module.exports = { controller }

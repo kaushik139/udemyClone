@@ -1,5 +1,5 @@
-const course = require('../../models/courses')
-const instructor = require('../../models/instructor')
+const course = require('../../../models/courses')
+const instructor = require('../../../models/instructor')
 const chalk = require('chalk');
 
 async function controller(req, res) {
@@ -11,7 +11,7 @@ async function controller(req, res) {
     if (courseExists) {
         console.log(chalk.red.bgYellowBright('Course already exist'));
 
-        res.status(409).json({ message: 'Course already exists'})
+        res.status(409).json({ message: 'Course already exists' })
     }
     else {
 
