@@ -15,7 +15,7 @@ GET http://localhost:3000/courses
 
 ###
 //Get One
-GET http://localhost:3000/courses/65312a12776e78de030d7c1f
+GET http://localhost:3000/courses/6520f3746df81d109d6591bb
 
 ###
 //Update One
@@ -84,3 +84,6 @@ Content-Type: application/json
 {
     "index": "1"
 }
+
+###
+GET http://localhost:3000/courses/getCurrentVideo

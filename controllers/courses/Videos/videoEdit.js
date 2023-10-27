@@ -10,8 +10,7 @@ async function controller(req, res) {
     // console.log(req.body.videoIndex);
 
 fs.readdir(path.join(__dirname,'..','..','..','public/Videos'), (err, files) => {
-    if (err) {
-    } else {
+    if (err) {} else {
         files.forEach((file) => {
             if (file === res.courses.sections[req.body.sectionIndex].videos[req.body.videoIndex].path) {
                 // console.log('found');

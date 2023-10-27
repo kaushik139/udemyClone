@@ -19,15 +19,22 @@ const removeSection = require('../controllers/courses/Section/deleteSection')
 const createVideoLecture = require('../controllers/courses/Videos/createVideoLecture')
 const updateVideoLecture = require('../controllers/courses/Videos/updateVideoLecture')
 const removeVideoLecture = require('../controllers/courses/Videos/deleteVideo')
+const getCurrentVideo = require('../controllers/courses/Videos/getCurrentVideo')
 
 const videoUpload = require('../controllers/courses/Videos/videoUpload')
 const videoEdit = require('../controllers/courses/Videos/videoEdit')
 
 const createExercise = require('../controllers/courses/Exercises/createExercise')
+const UpdateExercise = require('../controllers/courses/Exercises/updateExercise')
+const removeExercise = require('../controllers/courses/Exercises/deleteExercise')
+
 
 
 //Getting All
 router.get('/', getAll.controller)
+
+//Getting Video File for current video lecture
+router.get('/getCurrentVideo/:path', getCurrentVideo.controller)
 
 //Getting One
 router.get('/:id', (req, res, next) => {
@@ -72,6 +79,11 @@ router.patch('/createExercise/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, createExercise.controller)
 
+// edit Exercise
+router.patch('/UpdateExercise/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, UpdateExercise.controller)
+
 // update videoLecture (video name, video path)
 router.patch('/updateVideoLecture/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
@@ -81,6 +93,8 @@ router.patch('/updateVideoLecture/:id', (req, res, next) => {
 router.patch('/videoUpload/:id', middleware.upload2.single('fileInput'), (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, videoUpload.controller);
+
+
 
 //editing Lecture's Video file
 router.patch('/videoEdit/:id', middleware.upload2.single('fileInput'), (req, res, next) => {
@@ -106,6 +120,11 @@ router.delete('/deleteSection/:id', (req, res, next) => {
 router.delete('/deleteVideoLecture/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, removeVideoLecture.controller)
+
+//Deleting Exercise
+router.delete('/deleteExercise/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, removeExercise.controller)
 
 
 module.exports = router;
