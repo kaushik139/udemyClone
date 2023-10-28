@@ -11,6 +11,7 @@ const updatePricing = require('../controllers/courses/general/updatePricing')
 const landingPage = require('../controllers/courses/general/landingPage')
 const bgImage = require('../controllers/courses/general/bgImage')
 const remove = require('../controllers/courses/general/delete')
+const RequestPublish = require('../controllers/courses/general/requestPublish')
 
 const CreateSection = require('../controllers/courses/Section/CreateSection')
 const UpdateSection = require('../controllers/courses/Section/UpdateSection')
@@ -28,7 +29,7 @@ const createExercise = require('../controllers/courses/Exercises/createExercise'
 const UpdateExercise = require('../controllers/courses/Exercises/updateExercise')
 const removeExercise = require('../controllers/courses/Exercises/deleteExercise')
 
-
+const ShowCourseInstructor = require('../controllers/courses/general/showCoursesInstructor')
 
 //Getting All
 router.get('/', getAll.controller)
@@ -58,6 +59,11 @@ router.patch('/pricing/:id', (req, res, next) => {
 router.patch('/landingPage/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, landingPage.controller);
+
+//Requesting Course Publish
+router.patch('/requestPublish/:id', (req, res, next)=> {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, RequestPublish.controller)
 
 //uploading Landing Page BGimage
 router.patch('/landingPageImage/:id', middleware.upload.single('fileInput'), (req, res, next) => {
@@ -94,8 +100,6 @@ router.patch('/videoUpload/:id', middleware.upload2.single('fileInput'), (req, r
   middleware.getItemById(courses, 'courses', req, res, next);
 }, videoUpload.controller);
 
-
-
 //editing Lecture's Video file
 router.patch('/videoEdit/:id', middleware.upload2.single('fileInput'), (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
@@ -125,6 +129,9 @@ router.delete('/deleteVideoLecture/:id', (req, res, next) => {
 router.delete('/deleteExercise/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, removeExercise.controller)
+
+//Show All Courses, or filter by instructor
+router.get('/showCourses/:email', ShowCourseInstructor.controller)
 
 
 module.exports = router;
