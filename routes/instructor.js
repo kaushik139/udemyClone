@@ -10,6 +10,8 @@ const remove = require('../controllers/instructor/delete')
 const signup = require('../controllers/instructor/signup')
 const login = require('../controllers/instructor/login')
 
+const AllMyCourses = require('../controllers/instructor/allMyCourses')
+
 const middleware = require('./middlewares')
 
 //Getting All
@@ -40,6 +42,9 @@ router.post('/newSignup', (req, res, next) => {
 
 //Login
 router.post('/login', login.controller)
+
+//to get all courses by an instructor
+router.get('/allMyCourses/:email', AllMyCourses.controller);
 
 
 module.exports = router

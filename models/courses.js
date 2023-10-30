@@ -62,9 +62,11 @@ const courseSchema = new mongoose.Schema({
     images: {
         thumbnail: {
             type: String,
+            default: null
         },
         bgImage: {
             type: String,
+            default: null
         }
     },
     sections: [
@@ -75,6 +77,39 @@ const courseSchema = new mongoose.Schema({
                 {
                     title: String,
                     path: String,
+                    notes: [
+                        {
+                            studentID: mongoose.Schema.Types.ObjectId,
+                            note: String,
+                            time: {
+                                type: Date,
+                                default: () => Date.now(),
+                            }
+                        }
+                    ],
+                    QnA: [
+                        {
+                            querry: {
+                                studentID: mongoose.Schema.Types.ObjectId,
+                                text: String,
+                                time: {
+                                    type: Date,
+                                    default: () => Date.now(),
+                                }
+                            },
+                            replies: [
+                                {
+                                    ID: mongoose.Schema.Types.ObjectId,
+                                    replyBy: String,
+                                reply: String,
+                                time: {
+                                    type: Date,
+                                    default: () => Date.now(),
+                                }
+                                }
+                            ]
+                        }
+                    ]
 
                 }
             ],
@@ -84,6 +119,15 @@ const courseSchema = new mongoose.Schema({
                     description: String
                 }
             ]
+        }
+    ],
+    enrollment: [
+        {
+            studentID: mongoose.Schema.Types.ObjectId,
+            purchasedOn: {
+                type: Date,
+                default: () => Date.now(),
+            }
         }
     ],
     status: {
