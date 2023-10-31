@@ -26,7 +26,7 @@ const courseSchema = new mongoose.Schema({
     price: {
         basePrice: {
             type: Number,
-        required: true,
+            required: true,
         },
         discountType: {
             type: String
@@ -39,23 +39,29 @@ const courseSchema = new mongoose.Schema({
         },
         tax: {
             type: Number,
-        required: true,
+            required: true,
         },
         finalAmount: {
             type: Number,
-        required: true,
+            required: true,
         }
     },
-    rating: [
-        {
-            type: Number,
-            default: 0,
-            studentId: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'student'
-            }
-        }
-    ],
+    rating: {
+        netRating: Number,
+        ratings: [
+            {
+                rated: {
+                    type: Number,
+                    default: 0.0,
+                },
+                studentId: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'student',
+                },
+                text: String,
+            },
+        ],
+    },
     duration: {
         type: Number,
     },
@@ -101,11 +107,11 @@ const courseSchema = new mongoose.Schema({
                                 {
                                     ID: mongoose.Schema.Types.ObjectId,
                                     replyBy: String,
-                                reply: String,
-                                time: {
-                                    type: Date,
-                                    default: () => Date.now(),
-                                }
+                                    reply: String,
+                                    time: {
+                                        type: Date,
+                                        default: () => Date.now(),
+                                    }
                                 }
                             ]
                         }
