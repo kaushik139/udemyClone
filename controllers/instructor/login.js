@@ -15,7 +15,7 @@ async function controller(req, res) {
             
             console.log(chalk.yellowBright("Token: " + token));
             console.log(chalk.yellowBright("Name: " + user.name));
-            res.status(202).json({ token: token , name: user.name});
+            res.status(202).json({ token: token , name: user.name });
         }
         else {
             res.status(401).json({ message: "Password Incorrect" })

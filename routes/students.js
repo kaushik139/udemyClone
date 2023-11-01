@@ -11,6 +11,9 @@ const remove = require('../controllers/students/delete')
 const signup = require('../controllers/students/signup')
 const login = require('../controllers/students/login')
 
+//view courses
+const showAllCourses = require('../controllers/students/viewCourses/showAllCourses')
+
 //Getting All
 router.get('/', getAll.controller)
 
@@ -39,6 +42,9 @@ router.post('/newSignup', (req, res, next) => {
 
 //Login
 router.post('/login', login.controller)
+
+//Show all courses
+router.get('/showAllCourses/:page', showAllCourses.controller)
 
 
 module.exports = router 
