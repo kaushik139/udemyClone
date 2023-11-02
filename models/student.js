@@ -50,16 +50,14 @@ const studentSchema = new mongoose.Schema({
             }
         ]
     },
-    purchasedCourse: {
-        type: [
+    purchasedCourse:[
             {
                 courseCode: {
                     type: mongoose.Schema.Types.ObjectId,
                     ref: 'Course'
                 }
             }
-        ]
-    },
+        ],
     wishListedCourses: {
         type: [
             {

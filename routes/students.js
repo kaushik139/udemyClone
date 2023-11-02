@@ -13,6 +13,7 @@ const login = require('../controllers/students/login')
 
 //view courses
 const showAllCourses = require('../controllers/students/viewCourses/showAllCourses')
+const showMyCourses = require('../controllers/students/viewCourses/showMyCourses')
 
 //Getting All
 router.get('/', getAll.controller)
@@ -45,6 +46,9 @@ router.post('/login', login.controller)
 
 //Show all courses
 router.get('/showAllCourses/:page', showAllCourses.controller)
+
+//Show my courses
+router.get('/showMyCourses/:email', showMyCourses.controller)
 
 
 module.exports = router 
