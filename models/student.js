@@ -34,6 +34,9 @@ const studentSchema = new mongoose.Schema({
             message: 'Password must contain minimum eight characters, at least one letter and one number.'
         }
     },
+    
+    profileImage:  String,
+    
     currentCourse: {
         type: [
             {

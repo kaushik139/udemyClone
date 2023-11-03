@@ -18,10 +18,11 @@ const showMyCourses = require('../controllers/students/viewCourses/showMyCourses
 //Getting All
 router.get('/', getAll.controller)
 
+//Login
+router.post('/login', login.controller)
+
 //Getting One
-router.get('/:id', (req, res, next) => {
-    middleware.getItemById(student, 'student', req, res, next);
-}, getOne.controller);
+router.post('/:email', getOne.controller);
 
 //Creating One
 router.post('/', create.controller)
@@ -40,9 +41,6 @@ router.delete('/:id', (req, res, next) => {
 router.post('/newSignup', (req, res, next) => {
     middleware.checkEmail(student, req, res, next);
 }, signup.controller);
-
-//Login
-router.post('/login', login.controller)
 
 //Show all courses
 router.get('/showAllCourses/:page', showAllCourses.controller)

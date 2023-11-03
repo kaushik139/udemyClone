@@ -16,7 +16,8 @@ async function controller(req, res) {
         
         
     
-      res.status(200).json(coursesOnPage);
+        res.status(200).json(coursesOnPage);
+        // console.log(coursesOnPage[0].title)
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

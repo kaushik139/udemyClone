@@ -31,6 +31,7 @@ const instructorSchema = new mongoose.Schema({
             message: 'Password must contain minimum eight characters, at least one letter and one number'
         }
     },
+    image: String,
     courses: [
         {
             courseCode: {
@@ -39,9 +40,7 @@ const instructorSchema = new mongoose.Schema({
             },
         }
     ],
-    bio: {
-        type: String,
-    },
+    bio: String
 })
 
 
