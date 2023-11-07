@@ -17,10 +17,10 @@ const middleware = require('./middlewares')
 //Getting All
 router.get('/', getAll.controller)
 
-//Getting One
-// router.get('/:id',(req, res, next) => {
-//     middleware.getItemById(instructor, 'instructor', req, res, next);
-// }, getOne.controller)
+// Getting One
+router.get('/:id',(req, res, next) => {
+    middleware.getItemById(instructor, 'instructor', req, res, next);
+}, getOne.controller)
   
 //Getting One by email
 // router.post('/:email', getOne.controller);

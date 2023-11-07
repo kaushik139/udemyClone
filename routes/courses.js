@@ -31,6 +31,8 @@ const removeExercise = require('../controllers/courses/Exercises/deleteExercise'
 
 const ShowCourseInstructor = require('../controllers/courses/general/showCoursesInstructor')
 
+const PostQnA = require('../controllers/courses/general/postQNA')
+
 //Getting All
 router.get('/', getAll.controller)
 
@@ -132,6 +134,11 @@ router.delete('/deleteExercise/:id', (req, res, next) => {
 
 //Show All Courses, or filter by instructor
 router.get('/showCourses/:email', ShowCourseInstructor.controller)
+
+// Create New QnA
+router.post('/postQnA/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, PostQnA.controller)
 
 
 module.exports = router;

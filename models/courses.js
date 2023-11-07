@@ -47,12 +47,15 @@ const courseSchema = new mongoose.Schema({
         }
     },
     rating: {
-        netRating: Number,
+        netRating: {
+            type: Number,
+            default: 0.0,
+        },        
         ratings: [
             {
                 rated: {
                     type: Number,
-                    default: 0.0,
+                    default: 0,
                 },
                 studentId: {
                     type: mongoose.Schema.Types.ObjectId,
@@ -122,7 +125,40 @@ const courseSchema = new mongoose.Schema({
             exercises: [
                 {
                     title: String,
-                    description: String
+                    description: String,
+                    notes: [
+                        {
+                            studentID: mongoose.Schema.Types.ObjectId,
+                            note: String,
+                            time: {
+                                type: Date,
+                                default: () => Date.now(),
+                            }
+                        }
+                    ],
+                    QnA: [
+                        {
+                            querry: {
+                                studentID: mongoose.Schema.Types.ObjectId,
+                                text: String,
+                                time: {
+                                    type: Date,
+                                    default: () => Date.now(),
+                                }
+                            },
+                            replies: [
+                                {
+                                    ID: mongoose.Schema.Types.ObjectId,
+                                    replyBy: String,
+                                    reply: String,
+                                    time: {
+                                        type: Date,
+                                        default: () => Date.now(),
+                                    }
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
