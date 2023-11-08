@@ -2,8 +2,8 @@ const students = require('../../models/student')
 const instructors = require('../../models/instructor')
 
 async function controller(req, res) {
-    console.log(req.params.email);
-    console.log(req.body.role);
+    // console.log(req.params.email);
+    // console.log(req.body.role);
 
     if (req.body.role && req.params.email) {
         

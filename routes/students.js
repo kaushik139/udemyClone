@@ -28,7 +28,7 @@ router.post('/:email', getOne.controller);
 router.post('/', create.controller)
 
 // Updating one
-router.patch('/:id', (req, res, next) => {
+router.patch('/:id', middleware.upload.single('fileInput'), (req, res, next) => {
     middleware.getItemById(student, 'student', req, res, next);
 }, update.controller);
 

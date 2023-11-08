@@ -1,7 +1,7 @@
 const instructor = require('../../models/instructor')
 
 async function controller(req, res) {
-    console.log("controller");
+    // console.log("controller");
     try {
         res.json( res.instructor );
     } catch (err) {

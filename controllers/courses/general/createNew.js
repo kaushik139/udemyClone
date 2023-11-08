@@ -8,7 +8,7 @@ async function controller(req, res) {
     
     //creating new
     if (req.body.courseID === '') {
-        console.log('new');
+        // console.log('new');
     const user = await instructor.findOne({ email: req.body.email });
         const courseExists = await course.findOne({ title: req.body.title, instructor: req.body.instructor });
         // console.log(user);
@@ -52,8 +52,8 @@ async function controller(req, res) {
     }
     //editing
     else {
-        console.log('old');
-    console.log(chalk.green.bgRed(req.body.courseID + '  :qq'));
+        // console.log('old');
+    // console.log(chalk.green.bgRed(req.body.courseID + '  :qq'));
     const existingCourse = await course.findOne({ _id: req.body.courseID});
         // console.log(existingCourse);
         if (req.body.title) existingCourse.title = req.body.title;

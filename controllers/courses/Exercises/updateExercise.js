@@ -1,12 +1,12 @@
 const chalk = require('chalk')
 
 async function controller(req, res) {
-    console.log(req.body.sectionIndex);
-    console.log(req.body.exerciseIndex);
-    console.log(req.body.title);
-    console.log(req.body.description);
-    console.log(res.courses.sections[req.body.sectionIndex].exercises[0]);
-    console.log(res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex]);
+    // console.log(req.body.sectionIndex);
+    // console.log(req.body.exerciseIndex);
+    // console.log(req.body.title);
+    // console.log(req.body.description);
+    // console.log(res.courses.sections[req.body.sectionIndex].exercises[0]);
+    // console.log(res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex]);
 
 
     if (req.body.title && typeof(req.body.sectionIndex) === 'number' && typeof(req.body.exerciseIndex) === 'number') {

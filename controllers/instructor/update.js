@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 async function controller(req, res) {
-  console.log(req.body.name);
+//   console.log(req.body.name);
 
   if (req.body.name !== null) {
     res.instructor.name = req.body.name;
@@ -29,7 +29,7 @@ async function controller(req, res) {
       }
 
       if (req.file) {
-        console.log('Image uploaded:', req.file);
+        // console.log('Image uploaded:', req.file);
         res.instructor.image = {
           filename: req.file.filename,
         };

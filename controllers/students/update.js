@@ -1,83 +1,46 @@
-const student = require('../../models/student');
-const multer = require('multer');
-const path = require('path');
-
-// Configure Multer for handling image uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/Images/');
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
+const students = require('../../models/student')
 
 async function controller(req, res) {
-  console.log(req.body.name);
+  // console.log(res.student._id);
 
-  if (req.body.name !== null) {
+  if (req.body.name) {
+    // console.log(req.body.name);
     res.student.name = req.body.name;
   }
 
-  if (req.body.image !== '') {
-    upload.single('image')(req, res, async (err) => {
-      if (err) {
-        console.error('Error uploading image:', err);
-        return res.status(400).json({ message: 'Image upload error' });
-      }
+  let img = '';
+  if (req.file && req.file.filename) img = req.file.filename;
+  else img = '';
 
-      if (req.file) {
-        console.log('Image uploaded:', req.file);
-        res.student.image = {
-          filename: req.file.filename,
-        };
-      }
+  // console.log(res.student.profileImage);
+  // if (res.student.profileImage) {
+    
+  // }
 
-      try {
-        // Use findOneAndUpdate to update the specific fields without modifying the password
-        const updatedStudent = await student.findOneAndUpdate(
-          { _id: res.student._id }, // Filter by student ID
-          {
-            name: req.body.name,
-            image: req.file ? { filename: req.file.filename } : null,
-          }, // Update name and image if provided
-          { new: true } // Options: return the updated document
-        );
+  try {
+    //  Use findOneAndUpdate to update the name without modifying the password
+    const updatedStudent = await students.findOneAndUpdate(
+      { _id: res.student._id }, // Filter by student ID
+      {
+        $set: {
+          name: req.body.name,
+          profileImage: img,
+        },
+      },
+      { new: true } // Options: return the updated document
+    );
+    
 
-        if (!updatedStudent) {
-          return res.status(404).json({ message: 'Student not found' });
-        }
 
-        res.status(200).json({
-          message: 'Student Updated!',
-          student: updatedStudent,
-        });
-      } catch (err) {
-        return res.status(400).json({ message: err.message });
-      }
-    });
-  } else {
-    try {
-      // Use findOneAndUpdate to update the name without modifying the password
-      const updatedStudent = await student.findOneAndUpdate(
-        { _id: res.student._id }, // Filter by student ID
-        { name: req.body.name }, // Update name
-        { new: true } // Options: return the updated document
-      );
-
-      if (!updatedStudent) {
-        return res.status(404).json({ message: 'Student not found' });
-      }
-
-      res.status(200).json({
-        message: 'Student Updated!',
-        student: updatedStudent,
-      });
-    } catch (err) {
-      return res.status(400).json({ message: err.message });
+    if (!updatedStudent) {
+      return res.status(404).json({ message: 'Student not found' });
     }
+
+    res.status(200).json({
+      message: 'Updated!',
+    });
+  } catch (err) {
+    console.error(err);
   }
 }
 

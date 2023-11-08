@@ -3,7 +3,7 @@ const chalk = require('chalk')
 
 async function controller(req, res) {
 
-    console.log(chalk.red('UpdatingPrice: '));
+    // console.log(chalk.red('UpdatingPrice: '));
     // console.log(req.body.basePrice);
     // console.log(res.courses.price);
 

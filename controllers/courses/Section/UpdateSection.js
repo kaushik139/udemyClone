@@ -3,7 +3,7 @@ const chalk = require('chalk')
 
 async function controller(req, res) {
 
-    console.log(req.body)
+    // console.log(req.body)
     // console.log(chalk.bgBlueBright(req.body.index))
     // console.log(chalk.red(res.courses.sections[req.body.index]));
 

@@ -6,9 +6,9 @@ const jwt = require('jsonwebtoken');
 const chalk = require('chalk')
 
 async function controller(req, res) {
-    console.log(';;');
-    console.log(req.body);
-    console.log(chalk.green.bgBlackBright('Login Triggered! '+Date().slice(15,25)));
+    // console.log(';;');
+    // console.log(req.body);
+    // console.log(chalk.green.bgBlackBright('Login Triggered! '+Date().slice(15,25)));
     let user = await student.findOne({ email: req.body.email });
     let role = 'students'
 

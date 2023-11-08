@@ -31,7 +31,10 @@ const removeExercise = require('../controllers/courses/Exercises/deleteExercise'
 
 const ShowCourseInstructor = require('../controllers/courses/general/showCoursesInstructor')
 
-const PostQnA = require('../controllers/courses/general/postQNA')
+const PostQnA = require('../controllers/courses/QNA/postQNA')
+const GetQNA = require('../controllers/courses/QNA/getQNA')
+const DeleteQNA = require('../controllers/courses/QNA/deleteQNA')
+const ReplyQNA = require('../controllers/courses/QNA/replyQNA')
 
 //Getting All
 router.get('/', getAll.controller)
@@ -67,7 +70,7 @@ router.patch('/requestPublish/:id', (req, res, next)=> {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, RequestPublish.controller)
 
-//uploading Landing Page BGimage
+//uploading BGimage for Landing Page
 router.patch('/landingPageImage/:id', middleware.upload.single('fileInput'), (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, bgImage.controller);
@@ -140,5 +143,17 @@ router.post('/postQnA/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, PostQnA.controller)
 
+//get QNA
+router.post('/getQNA', GetQNA.controller)
+
+// Reply QNA post
+router.delete('/replyQNA/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, ReplyQNA.controller)
+
+// Delete QNA post
+router.delete('/removeQNA/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, DeleteQNA.controller)
 
 module.exports = router;

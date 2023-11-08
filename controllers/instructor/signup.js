@@ -8,8 +8,8 @@ async function controller(req, res) {
         password: req.body.password
     })
     try {
-        console.log(chalk.red.bgYellowBright('data:'));
-        console.log(newInstructor);
+        // console.log(chalk.red.bgYellowBright('data:'));
+        // console.log(newInstructor);
         const saveInstructor = await newInstructor.save()
         res.status(201).json(saveInstructor + { message: "New Instructor Signup!" })
         console.log(chalk.bgYellowBright.red('success'));

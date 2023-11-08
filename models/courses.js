@@ -57,7 +57,7 @@ const courseSchema = new mongoose.Schema({
                     type: Number,
                     default: 0,
                 },
-                studentId: {
+                studentID: {
                     type: mongoose.Schema.Types.ObjectId,
                     ref: 'student',
                 },
@@ -99,7 +99,10 @@ const courseSchema = new mongoose.Schema({
                     QnA: [
                         {
                             querry: {
-                                studentID: mongoose.Schema.Types.ObjectId,
+                                studentID: {
+                                    type: mongoose.Schema.Types.ObjectId,
+                                    ref: 'student',
+                                },
                                 text: String,
                                 time: {
                                     type: Date,
@@ -108,8 +111,10 @@ const courseSchema = new mongoose.Schema({
                             },
                             replies: [
                                 {
-                                    ID: mongoose.Schema.Types.ObjectId,
-                                    replyBy: String,
+                                    studentID: {
+                                        type: mongoose.Schema.Types.ObjectId,
+                                        ref: 'student',
+                                    },                                    replyBy: String,
                                     reply: String,
                                     time: {
                                         type: Date,
@@ -126,10 +131,12 @@ const courseSchema = new mongoose.Schema({
                 {
                     title: String,
                     description: String,
-                    notes: [
+                     notes: [
                         {
-                            studentID: mongoose.Schema.Types.ObjectId,
-                            note: String,
+                            studentID: {
+                                type: mongoose.Schema.Types.ObjectId,
+                                ref: 'student',
+                            },                            note: String,
                             time: {
                                 type: Date,
                                 default: () => Date.now(),
@@ -139,8 +146,10 @@ const courseSchema = new mongoose.Schema({
                     QnA: [
                         {
                             querry: {
-                                studentID: mongoose.Schema.Types.ObjectId,
-                                text: String,
+                                studentID: {
+                                    type: mongoose.Schema.Types.ObjectId,
+                                    ref: 'student',
+                                },                                text: String,
                                 time: {
                                     type: Date,
                                     default: () => Date.now(),
@@ -148,7 +157,10 @@ const courseSchema = new mongoose.Schema({
                             },
                             replies: [
                                 {
-                                    ID: mongoose.Schema.Types.ObjectId,
+                                    studentID: {
+                                        type: mongoose.Schema.Types.ObjectId,
+                                        ref: 'student',
+                                    },
                                     replyBy: String,
                                     reply: String,
                                     time: {
@@ -165,7 +177,10 @@ const courseSchema = new mongoose.Schema({
     ],
     enrollment: [
         {
-            studentID: mongoose.Schema.Types.ObjectId,
+            studentID: mongoose.Schema.Types.ObjectId, studentID: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'student',
+            },
             purchasedOn: {
                 type: Date,
                 default: () => Date.now(),
