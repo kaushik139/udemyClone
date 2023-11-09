@@ -114,7 +114,8 @@ const courseSchema = new mongoose.Schema({
                                     studentID: {
                                         type: mongoose.Schema.Types.ObjectId,
                                         ref: 'student',
-                                    },                                    replyBy: String,
+                                    },
+                                    replyBy: String,
                                     reply: String,
                                     time: {
                                         type: Date,

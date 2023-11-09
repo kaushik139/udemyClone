@@ -21,6 +21,11 @@ router.get('/', getAll.controller)
 //Login
 router.post('/login', login.controller)
 
+//SignUp
+router.post('/newSignup', (req, res, next) => {
+    middleware.checkEmail(student, req, res, next);
+}, signup.controller);
+
 //Getting One
 router.post('/:email', getOne.controller);
 
@@ -37,10 +42,6 @@ router.delete('/:id', (req, res, next) => {
     middleware.getItemById(student, 'student', req, res, next);
 }, remove.controller);
 
-//SignUp
-router.post('/newSignup', (req, res, next) => {
-    middleware.checkEmail(student, req, res, next);
-}, signup.controller);
 
 //Show all courses
 router.get('/showAllCourses/:page', showAllCourses.controller)

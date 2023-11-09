@@ -1,7 +1,7 @@
 async function controller(req, res) {
     // console.log(res.courses);
     // console.log(req.body);
-    console.log(res.courses.sections[req.body.sectionIndex][req.body.viewType][req.body.viewIndex].QnA[req.body.querryIndex]);
+    // console.log(res.courses.sections[req.body.sectionIndex][req.body.viewType][req.body.viewIndex].QnA[req.body.querryIndex]);
 
     if (req.body) {
         try {

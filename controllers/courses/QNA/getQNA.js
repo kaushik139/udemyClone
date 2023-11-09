@@ -9,11 +9,20 @@ async function controller(req, res) {
                 const id = QNA[i].querry.studentID;
                 const student = await students.findOne({ _id: id });
                 QNA[i].querry.studentName = student.name;
+                QNA[i].querry.studentImg = student.profileImage;
                 // console.log(chalk.yellowBright(QNA[i].querry));
                 // console.log(chalk.bgRed(id));
                 // console.log(student);
-                QNA[i].querry.studentImg = student.profileImage;
                 // console.log(QNA);
+                if (QNA[i].replies) {
+                    for (let j = 0; j < QNA[i].replies.length; j++) {
+                        // console.log(QNA[i].replies[j]);
+                        const replyStudent = await students.findOne({ _id: QNA[i].replies[j].studentID })
+                        // console.log(replyStudent);
+                        QNA[i].replies[j].studentName = replyStudent.name;
+                        QNA[i].replies[j].profileImage = replyStudent.profileImage;
+                    }
+                }
             }
             res.status(200).json(QNA);
         } catch (err) {

@@ -34,6 +34,7 @@ const ShowCourseInstructor = require('../controllers/courses/general/showCourses
 const PostQnA = require('../controllers/courses/QNA/postQNA')
 const GetQNA = require('../controllers/courses/QNA/getQNA')
 const DeleteQNA = require('../controllers/courses/QNA/deleteQNA')
+const EditQNA = require('../controllers/courses/QNA/editPost')
 const ReplyQNA = require('../controllers/courses/QNA/replyQNA')
 
 //Getting All
@@ -147,7 +148,7 @@ router.post('/postQnA/:id', (req, res, next) => {
 router.post('/getQNA', GetQNA.controller)
 
 // Reply QNA post
-router.delete('/replyQNA/:id', (req, res, next) => {
+router.post('/replyQNA/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, ReplyQNA.controller)
 
@@ -155,5 +156,10 @@ router.delete('/replyQNA/:id', (req, res, next) => {
 router.delete('/removeQNA/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, DeleteQNA.controller)
+
+// Edit QNA post
+router.post('/editQNA/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, EditQNA.controller)
 
 module.exports = router;
