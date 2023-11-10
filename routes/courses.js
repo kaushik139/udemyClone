@@ -36,6 +36,10 @@ const GetQNA = require('../controllers/courses/QNA/getQNA')
 const DeleteQNA = require('../controllers/courses/QNA/deleteQNA')
 const EditQNA = require('../controllers/courses/QNA/editPost')
 const ReplyQNA = require('../controllers/courses/QNA/replyQNA')
+const EditQnaReply = require('../controllers/courses/QNA/editQnaReply')
+const DeleteQnaReply = require('../controllers/courses/QNA/deleteQnaReply')
+
+const CreateNote = require('../controllers/courses/Notes/createNote')
 
 //Getting All
 router.get('/', getAll.controller)
@@ -152,6 +156,16 @@ router.post('/replyQNA/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, ReplyQNA.controller)
 
+// Edit QNA Reply 
+router.post('/editQnaReply/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, EditQnaReply.controller)
+
+// Delete QNA Reply 
+router.post('/deleteQnaReply/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, DeleteQnaReply.controller)
+
 // Delete QNA post
 router.delete('/removeQNA/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
@@ -161,5 +175,10 @@ router.delete('/removeQNA/:id', (req, res, next) => {
 router.post('/editQNA/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, EditQNA.controller)
+
+// create Note
+router.post('/createNote/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, CreateNote.controller)
 
 module.exports = router;
