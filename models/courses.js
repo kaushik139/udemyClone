@@ -137,7 +137,8 @@ const courseSchema = new mongoose.Schema({
                             studentID: {
                                 type: mongoose.Schema.Types.ObjectId,
                                 ref: 'student',
-                            },                            note: String,
+                             },
+                            note: String,
                             time: {
                                 type: Date,
                                 default: () => Date.now(),

@@ -40,6 +40,13 @@ const EditQnaReply = require('../controllers/courses/QNA/editQnaReply')
 const DeleteQnaReply = require('../controllers/courses/QNA/deleteQnaReply')
 
 const CreateNote = require('../controllers/courses/Notes/createNote')
+const ShowNotes = require('../controllers/courses/Notes/showNotes')
+const EditNotes = require('../controllers/courses/Notes/editNote')
+const DeleteNotes = require('../controllers/courses/Notes/deleteNote')
+
+const SubmitRating = require('../controllers/courses/Ratings/submitRating')
+const ShowRating = require('../controllers/courses/Ratings/showRating')
+
 
 //Getting All
 router.get('/', getAll.controller)
@@ -177,8 +184,33 @@ router.post('/editQNA/:id', (req, res, next) => {
 }, EditQNA.controller)
 
 // create Note
-router.post('/createNote/:id', (req, res, next) => {
+router.post('/newNote/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, CreateNote.controller)
+
+// Show Notes
+router.post('/getNotes/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, ShowNotes.controller)
+
+// Edit Notes
+router.post('/editNotes/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, EditNotes.controller)
+
+// Delete Notes
+router.post('/deleteNotes/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, DeleteNotes.controller)
+
+// Submit Rating
+router.post('/submitRating/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, SubmitRating.controller)
+
+// Show Rating
+router.post('/showRating/:id', (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, ShowRating.controller)
 
 module.exports = router;
