@@ -37,22 +37,25 @@ const studentSchema = new mongoose.Schema({
     
     profileImage:  String,
     
-    currentCourse: {
-        type: [
+    currentCourse:[
             {
                 courseCode: {
                     type: mongoose.Schema.Types.ObjectId,
                     ref: 'Course'
                 },
-                progress: {
-                    type: Number
-                },
-                currentVideo: {
-                    type: Number
-                },
+                progress: Number,
+                currentSectionIndex: Number,
+                currentViewType: String,
+            currentViewIndex: Number,
+            watched: [
+                {
+                    section: Number,
+                    view: String,
+                    viewIndex: Number
+                }
+            ]
             }
-        ]
-    },
+        ],
     purchasedCourse:[
             {
                 courseCode: {

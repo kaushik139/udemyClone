@@ -1,7 +1,18 @@
-// const courses = require('../../models/courses')
+const students = require('../../../models/student')
 
 async function controller(req, res) {
+    // console.log(req.query.studentID);
+    const id = req.query.studentID;
+
     try {
+
+        // if (id) {
+        //     const user = await students.find({ _id: id })
+        //     if (user.currentCourse.watched) {
+        //         console.log(user.currentCourse.watched);
+        //     }
+        // }
+
         res.json({ item: res.courses });
         // console.log(res.courses);
     } catch (err) {
