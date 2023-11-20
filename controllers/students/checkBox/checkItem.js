@@ -1,4 +1,4 @@
-const student = require('../../models/student')
+const student = require('../../../models/student')
 
 async function controller(req, res) {
     const newStudent = new student({

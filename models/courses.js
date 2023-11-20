@@ -65,6 +65,17 @@ const courseSchema = new mongoose.Schema({
             },
         ],
     },
+
+    stripeProductID: {
+        type: String,
+        required: true,
+    },
+
+    stripePriceID: {
+        type: String,
+        required: true,
+    },
+
     duration: {
         type: Number,
     },

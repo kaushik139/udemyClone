@@ -1,4 +1,4 @@
-const student = require('../../models/student')
+const student = require('../../../models/student')
 
 async function controller(req, res) {
     try {
@@ -8,5 +8,5 @@ async function controller(req, res) {
         res.status(500).json({ message: err.message })
     }
 }
-module.exports = {controller}
+module.exports = { controller }
 

@@ -1,7 +1,7 @@
-const student = require('../../models/student')
-const instructor = require('../../models/instructor')
+const student = require('../../../models/student')
+const instructor = require('../../../models/instructor')
 const bcrypt = require('bcrypt');
-const config = require('../../config.json')
+const config = require('../../../config.json')
 const jwt = require('jsonwebtoken');
 const chalk = require('chalk')
 
@@ -22,10 +22,10 @@ async function controller(req, res) {
         passwordMatch = await bcrypt.compare(req.body.password, user.password);
 
         if (passwordMatch) {
-            const token = jwt.sign({ id: user.id, username: user.name }, config.jwtKEY, {expiresIn: '1m'});
-            
+            const token = jwt.sign({ id: user.id, username: user.name }, config.jwtKEY, { expiresIn: '1m' });
+
             console.log(chalk.yellowBright("Token: " + token));
-            res.status(202).json({ token: token , name: user.name, role: role});
+            res.status(202).json({ token: token, name: user.name, role: role });
         }
         else {
             res.status(401).json({ message: "Password Incorrect" })

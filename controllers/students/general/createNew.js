@@ -1,5 +1,4 @@
-const student = require('../../models/student')
-const chalk = require('chalk')
+const student = require('../../../models/student')
 
 async function controller(req, res) {
     const newStudent = new student({
@@ -7,13 +6,9 @@ async function controller(req, res) {
         email: req.body.email,
         password: req.body.password
     })
-    // console.log(chalk.bgYellowBright.red('data:'));
-    // console.log(newStudent);
     try {
         const saveStudent = await newStudent.save()
-        res.status(201).json(saveStudent + { message: "New Student Signup!" })
-        console.log(chalk.bgRed.yellowBright('Registered!'));
-        console.log(saveStudent);
+        res.status(201).json(saveStudent)
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
