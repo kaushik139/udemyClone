@@ -2,7 +2,7 @@ const courses = require('../../../models/courses');
 const chalk = require('chalk');
 
 async function controller(req, res) {
-    // console.log(req.body.desc);
+    console.log(req.body.desc);
 
     try {
         if (req.body.desc) {
@@ -17,6 +17,7 @@ async function controller(req, res) {
             return res.status(400).json({ message: 'Missing Fields' });
         }
     } catch (err) {
+        console.log(chalk.red(err));
         return res.status(500).json({ message: err.message });
     }
 }

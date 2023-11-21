@@ -47,6 +47,8 @@ const DeleteNotes = require('../controllers/courses/Notes/deleteNote')
 const SubmitRating = require('../controllers/courses/Ratings/submitRating')
 const ShowRating = require('../controllers/courses/Ratings/showRating')
 
+const SearchItem = require('../controllers/courses/Searching/search')
+
 
 //Getting All
 router.get('/', getAll.controller)
@@ -212,5 +214,8 @@ router.post('/submitRating/:id', (req, res, next) => {
 router.post('/showRating/:id', (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, ShowRating.controller)
+
+// Search a term
+router.get('/search/:text', SearchItem.controller)
 
 module.exports = router;

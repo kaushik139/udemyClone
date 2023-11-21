@@ -6,7 +6,6 @@ async function controller(req, res) {
 
     if (req.body.id) {
         try {
-
             const UserRating = res.courses.rating.ratings.find(obj => obj.studentID == String(req.body.id));
             // console.log(UserRating);
 
@@ -25,7 +24,7 @@ async function controller(req, res) {
             // console.log(counts);
             const totalRatings = counts.rated_1 + counts.rated_2 + counts.rated_3 + counts.rated_4 + counts.rated_5;
 
-            res.status(200).json({UserRating: UserRating, counts: counts, totalRatings: totalRatings, netRated: res.courses.rating.netRating})
+            res.status(200).json({ UserRating: UserRating, counts: counts, totalRatings: totalRatings, netRated: res.courses.rating.netRating })
 
         } catch (err) { console.error(err); }
     }

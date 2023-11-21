@@ -38,6 +38,7 @@ async function getItemById(model, itemName, req, res, next) {
       return res.status(404).json({ message: `${itemName} not Found!` });
     }
     res[itemName] = item;
+    // console.log(res[itemName])
     next();
   } catch (err) {
     return res.status(500).json({ message: err.message });

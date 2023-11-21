@@ -2,7 +2,7 @@ const students = require('../../../models/student')
 
 async function controller(req, res) {
   // console.log(res.student._id);
-  console.log(res.student.profileImage);
+  // console.log(res.student.profileImage);
   // console.log(req.body.name);
 
   if (req.body.name) {

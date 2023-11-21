@@ -1,9 +1,10 @@
 const students = require('../../../models/student')
 const instructors = require('../../../models/instructor')
+const chalk = require('chalk')
 
 async function controller(req, res) {
-    // console.log(req.params.email);
-    // console.log(req.body.role);
+    // console.log(chalk.red(req.params.email));
+    // console.log(chalk.yellowBright(req.body.role));
 
     if (req.body.role && req.params.email) {
 

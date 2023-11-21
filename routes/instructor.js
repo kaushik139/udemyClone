@@ -29,7 +29,7 @@ router.get('/:id',(req, res, next) => {
 router.post('/', create.controller)
 
 // Updating one
-router.patch('/:id',(req, res, next) => {
+router.patch('/:id', middleware.upload.single('fileInput'), (req, res, next) => {
     middleware.getItemById(instructor, 'instructor', req, res, next);
   }, update.controller)
 
