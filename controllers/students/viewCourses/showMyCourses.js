@@ -16,7 +16,6 @@ async function controller(req, res) {
                 y = await courses.find({ _id: userCourseIDs[i] });
                 userPurchasedCourses.push(y[0]);
             }
-            // console.log(userPurchasedCourses[0].title);
 
             if (userPurchasedCourses.length) {
                 res.status(201).json(userPurchasedCourses)

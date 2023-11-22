@@ -1,8 +1,5 @@
-const students = require('../../../models/student')
-
 async function controller(req, res) {
-    // console.log(req.query.studentID);
-    const id = req.query.studentID;
+    console.log(req.params.id);
 
     try {
 

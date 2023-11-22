@@ -26,7 +26,7 @@ async function controller(req, res) {
         ]
     };
 
-    const list = await courses.find();
+    const list = await courses.find({status:"published"});
     const fuse = new Fuse(list, fuseOptions);
     const searchPattern = req.params.text;
 
