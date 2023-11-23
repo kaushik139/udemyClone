@@ -7,6 +7,7 @@ const chalk = require('chalk')
 const studentsRouter = require('./routes/students')
 const instructorsRouter = require('./routes/instructor')
 const coursesRouter = require('./routes/courses')
+const adminRouter = require('./routes/admin')
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 const endpointSecret = process.env.END_POINT_SECRET
 const app = express()
@@ -74,6 +75,7 @@ app.use(cors())
 app.use('/students', studentsRouter)
 app.use('/instructors', instructorsRouter)
 app.use('/courses', coursesRouter)
+app.use('/admin', adminRouter)
 app.use('/images', express.static('public/Images'));
 
 app.listen(process.env.port, () => {

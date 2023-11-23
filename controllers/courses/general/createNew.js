@@ -59,6 +59,17 @@ async function controller(req, res) {
                 })
                 
                 const saveCourse = await newCourse.save();
+
+                await instructor.findOneAndUpdate(
+                    { email: req.body.email }, 
+                    {
+                        $push: {
+                            'courses': { courseCode: newCourse._id }
+                        }
+                    },
+                    { new: true } 
+                );
+                
                 res.status(201).json({ message: 'New Course Added', id: newCourse._id })
                 console.log(chalk.white.bgGreenBright('New Course Added!'));
                 // console.log(saveCourse);
