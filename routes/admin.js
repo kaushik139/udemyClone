@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-
+const Overview = require('../controllers/admin/overview')
 
 const PublishedCourses = require('../controllers/admin/courses/publishedCourses')
 const UnpublishedCourses = require('../controllers/admin/courses/unpublishedCourses')
@@ -16,7 +16,8 @@ const UPCStudents = require('../controllers/admin/students/upcStudents')
 const AllStudents = require('../controllers/admin/students/allStudents')
 
 
-
+//  Get Overview
+router.get('/overview', Overview.controller)
 
 // published courses for admin
 router.get('/getPublishedCourses', PublishedCourses.controller)
