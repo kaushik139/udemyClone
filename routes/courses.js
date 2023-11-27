@@ -24,6 +24,8 @@ const getCurrentVideo = require('../controllers/courses/Videos/getCurrentVideo')
 
 const videoUpload = require('../controllers/courses/Videos/videoUpload')
 const videoEdit = require('../controllers/courses/Videos/videoEdit')
+const exerciseUpload = require('../controllers/courses/Exercises/fileUpload')
+// const exerciseEdit = require('../controllers/courses/Videos/exerciseEdit')
 
 const createExercise = require('../controllers/courses/Exercises/createExercise')
 const UpdateExercise = require('../controllers/courses/Exercises/updateExercise')
@@ -123,6 +125,16 @@ router.patch('/videoUpload/:id', middleware.upload2.single('fileInput'), (req, r
 router.patch('/videoEdit/:id', middleware.upload2.single('fileInput'), (req, res, next) => {
   middleware.getItemById(courses, 'courses', req, res, next);
 }, videoEdit.controller);
+
+//uploading Exercise file
+router.patch('/exerciseUpload/:id', middleware.upload3.single('fileInput'), (req, res, next) => {
+  middleware.getItemById(courses, 'courses', req, res, next);
+}, exerciseUpload.controller);
+
+//editing Exercise file
+// router.patch('/exerciseEdit/:id', middleware.upload2.single('fileInput'), (req, res, next) => {
+//   middleware.getItemById(courses, 'courses', req, res, next);
+// }, exerciseEdit.controller);
 
 // Updating Section
 router.patch('/UpdateSection/:id', (req, res, next) => {

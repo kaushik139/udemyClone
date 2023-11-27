@@ -25,7 +25,7 @@ async function controller(req, res) {
             const token = jwt.sign({ id: user.id, username: user.name }, config.jwtKEY, { expiresIn: '1m' });
 
             console.log(chalk.yellowBright("Token: " + token));
-            res.status(202).json({ token: token, name: user.name, role: role });
+            res.status(200).json({ token: token, name: user.name, role: role });
         }
         else {
             res.status(401).json({ message: "Password Incorrect" })
@@ -33,7 +33,7 @@ async function controller(req, res) {
         }
     }
     else {
-        res.status(404).json({ message: "User not Exists!" })
+        res.status(401).json({ message: "User not Exists!" })
         console.log(chalk.red('User not Exists!'));
     }
 

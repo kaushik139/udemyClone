@@ -28,7 +28,7 @@ async function controller(req, res) {
             },
             mode: "payment",
             success_url: `http://localhost:8080/sHome`,
-            cancel_url: `http://localhost:8080/player`,
+            cancel_url: `http://localhost:8080/sHome`,
         });
         // console.log(session);
 

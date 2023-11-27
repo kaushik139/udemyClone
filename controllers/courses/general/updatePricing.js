@@ -14,8 +14,8 @@ async function controller(req, res) {
             product: res.courses.stripeProductID,
             unit_amount: (req.body.finalPrice * 100),
             currency: "inr",
-          };
-          const price = await stripe.prices.create(priceObject);
+        };
+        const price = await stripe.prices.create(priceObject);
 
         res.courses.price.basePrice = req.body.basePrice;
         res.courses.price.tax = req.body.tax;
@@ -23,7 +23,7 @@ async function controller(req, res) {
         res.courses.price.discountType = req.body.discountType;
         res.courses.price.discountPercent = req.body.discountPercent;
         res.courses.price.discountAmount = req.body.discountAmount;
-        res.courses.StripePricrID = price.id;
+        res.courses.stripePriceID = price.id;
 
         try {
             res.courses.save();

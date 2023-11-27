@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const Overview = require('../controllers/admin/overview')
+const Publish = require('../controllers/admin/courses/publishCourse')
 
 const PublishedCourses = require('../controllers/admin/courses/publishedCourses')
 const UnpublishedCourses = require('../controllers/admin/courses/unpublishedCourses')
@@ -49,5 +50,9 @@ router.get('/getUpcStudents', UPCStudents.controller)
 
 // All Students for admin
 router.get('/getAllStudents', AllStudents.controller)
+
+// Publish a Course
+router.post('/publishCourse/:id', Publish.controller);
+
 
 module.exports = router;

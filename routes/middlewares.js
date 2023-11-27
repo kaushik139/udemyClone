@@ -29,6 +29,20 @@ const storage2 = multer.diskStorage({
 
 const upload2 = multer({ storage: storage2 });
 
+// code for Multer Exercises
+const storage3 = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/Files');
+  },
+  filename: (req, file, cb) => {
+    const timestamp = new Date().toISOString().replace(/[-:.TZ]/g, '');
+    const fName = timestamp + file.originalname;
+    cb(null, fName);
+  },
+});
+
+const upload3 = multer({ storage: storage3 });
+
 
 //finding item by id
 async function getItemById(model, itemName, req, res, next) {
@@ -72,6 +86,7 @@ module.exports = {
   checkEmail,
   getItemById,
   upload,
-  upload2
+  upload2,
+  upload3,
   // generateToken
 }

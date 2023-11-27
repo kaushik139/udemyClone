@@ -34,7 +34,7 @@ async function controller(req, res) {
                     unit_amount: 0,
                     currency: "inr",
                   };
-                  const price = await stripe.prices.create(priceObject);
+                const price = await stripe.prices.create(priceObject);
                     //  console.log(product.id);
             //    console.log(price.id);
 

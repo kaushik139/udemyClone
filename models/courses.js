@@ -50,7 +50,7 @@ const courseSchema = new mongoose.Schema({
         netRating: {
             type: Number,
             default: 0.0,
-        },        
+        },
         ratings: [
             {
                 rated: {
@@ -143,12 +143,12 @@ const courseSchema = new mongoose.Schema({
                 {
                     title: String,
                     description: String,
-                     notes: [
+                    notes: [
                         {
                             studentID: {
                                 type: mongoose.Schema.Types.ObjectId,
                                 ref: 'student',
-                             },
+                            },
                             note: String,
                             time: {
                                 type: Date,
@@ -162,7 +162,7 @@ const courseSchema = new mongoose.Schema({
                                 studentID: {
                                     type: mongoose.Schema.Types.ObjectId,
                                     ref: 'student',
-                                },                                text: String,
+                                }, text: String,
                                 time: {
                                     type: Date,
                                     default: () => Date.now(),
@@ -200,6 +200,10 @@ const courseSchema = new mongoose.Schema({
             }
         }
     ],
+    publishedAt: {
+        type: Date,
+        // default: () => Date.now(),
+    },
     status: {
         type: String,
         required: true,
