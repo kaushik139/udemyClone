@@ -8,7 +8,7 @@ async function controller(req, res) {
         for (let i = 0; i < list.length; i++){
             const ins = await Instructors.findOne({ _id: list[i].instructor })
             list[i].instructorName = ins.name;
-            console.log(list[i]);
+            // console.log(list[i]);
         }
 
         if (list.length) res.status(200).json(list);

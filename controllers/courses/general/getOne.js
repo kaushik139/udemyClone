@@ -1,5 +1,5 @@
 async function controller(req, res) {
-    console.log(req.params.id);
+    // console.log(req.params.id);
 
     try {
 

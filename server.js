@@ -20,6 +20,8 @@ mongoose.connect(process.env.DB_URL, {
 const db = mongoose.connection;
 db.on('error', (error) => console.log(error));
 db.once('open', () => console.log('Connected to Database'));
+
+// webHook
 app.post(
     "/stripe/webhook",
     express.raw({ type: "application/json" }),
@@ -77,6 +79,8 @@ app.use('/instructors', instructorsRouter)
 app.use('/courses', coursesRouter)
 app.use('/admin', adminRouter)
 app.use('/images', express.static('public/Images'));
+app.use('/files', express.static('public/Files'));
+
 
 app.listen(process.env.port, () => {
     console.log(chalk.red.bgYellowBright('Listening on Port 3000!' + Date().slice(15, 25)));

@@ -1,6 +1,7 @@
 const chalk = require('chalk')
 
 async function controller(req, res) {
+    // console.log(chalk.red(req.body.filePath));
     // console.log(req.body.sectionIndex);
     // console.log(req.body.exerciseIndex);
     // console.log(req.body.title);
@@ -14,6 +15,9 @@ async function controller(req, res) {
     }
     if (req.body.description && typeof(req.body.sectionIndex) === 'number' && typeof(req.body.exerciseIndex) === 'number') {
         res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex].description = req.body.description
+    }
+    if (req.body.filePath != '' && typeof (req.body.sectionIndex) === 'number' && typeof (req.body.exerciseIndex) === 'number') {
+        res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex].filePath = req.body.filePath
     }
 
     try {

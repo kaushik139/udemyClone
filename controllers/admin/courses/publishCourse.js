@@ -1,7 +1,7 @@
 const Courses = require('../../../models/courses');
 
 async function controller(req, res) {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     if (req.params.id) {
         try {
             const course = await Courses.findOne({ _id: req.params.id });

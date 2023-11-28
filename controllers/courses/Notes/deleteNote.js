@@ -2,7 +2,7 @@ const chalk = require('chalk')
 
 async function controller(req, res) {
     // console.log(req.body);
-    console.log(chalk.red(res.courses.sections[req.body.sectionIndex][req.body.viewType][req.body.viewIndex].notes));
+    // console.log(chalk.red(res.courses.sections[req.body.sectionIndex][req.body.viewType][req.body.viewIndex].notes));
 
     if (req.body) {
         try {
@@ -11,7 +11,7 @@ async function controller(req, res) {
 
             res.courses.sections[req.body.sectionIndex][req.body.viewType][req.body.viewIndex].notes.splice(Index, 1);
 
-            console.log(res.courses.sections[req.body.sectionIndex][req.body.viewType][req.body.viewIndex].notes);
+            // console.log(res.courses.sections[req.body.sectionIndex][req.body.viewType][req.body.viewIndex].notes);
             await res.courses.save();
             res.status(200).json('Note Deleted!')
         } catch (err) {

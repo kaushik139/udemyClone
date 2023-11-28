@@ -84,9 +84,7 @@ async function controller(req, res) {
     //editing
     else {
         // console.log('edit');
-    console.log(chalk.green.bgRed(req.body.courseID + '  :qq'));
     const existingCourse = await course.findOne({ _id: req.body.courseID});
-        console.log(chalk.yellowBright(existingCourse));
         if (req.body.title) existingCourse.title = req.body.title;
         if (req.body.miniDescription) existingCourse.description.miniDescription = req.body.miniDescription;
         if (req.body.category) existingCourse.category = req.body.category;

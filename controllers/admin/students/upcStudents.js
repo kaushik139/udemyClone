@@ -2,7 +2,7 @@ const Courses = require('../../../models/courses')
 const Students = require('../../../models/student')
 
 async function controller(req, res) {
-    console.log('upc');
+    // console.log('upc');
 
     try {
         let list = await Students.find({

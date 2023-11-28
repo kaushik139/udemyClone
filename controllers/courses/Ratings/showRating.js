@@ -8,7 +8,7 @@ async function controller(req, res) {
         try {
             const findUserRating = res.courses.rating.ratings.find(obj => obj.studentID == String(req.body.id));
             const UserRating = findUserRating ? findUserRating : null;
-            console.log(UserRating);
+            // console.log(UserRating);
 
             const ratings = res.courses.rating.ratings;
 

@@ -1,5 +1,5 @@
 async function controller(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
 
     // sectionIndex: '0',
     // viewIndex: '0',

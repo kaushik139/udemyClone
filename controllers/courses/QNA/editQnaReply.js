@@ -1,5 +1,5 @@
 async function controller(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
 
     if (res.courses && req.body) {
         try {

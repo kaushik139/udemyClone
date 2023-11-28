@@ -26,6 +26,7 @@ const videoUpload = require('../controllers/courses/Videos/videoUpload')
 const videoEdit = require('../controllers/courses/Videos/videoEdit')
 const exerciseUpload = require('../controllers/courses/Exercises/fileUpload')
 // const exerciseEdit = require('../controllers/courses/Videos/exerciseEdit')
+const DownloadExercise = require('../controllers/courses/Exercises/downloadExercise')
 
 const createExercise = require('../controllers/courses/Exercises/createExercise')
 const UpdateExercise = require('../controllers/courses/Exercises/updateExercise')
@@ -57,6 +58,9 @@ router.get('/', getAll.controller)
 
 //Getting Video File for current video lecture
 router.get('/getCurrentVideo/:path', getCurrentVideo.controller)
+
+//download Exercise file
+router.get('/exerciseDownload/:path', DownloadExercise.controller);
 
 //Getting One
 router.get('/:id', (req, res, next) => {

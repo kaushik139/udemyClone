@@ -143,6 +143,7 @@ const courseSchema = new mongoose.Schema({
                 {
                     title: String,
                     description: String,
+                    filePath: String,
                     notes: [
                         {
                             studentID: {
