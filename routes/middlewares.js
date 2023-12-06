@@ -55,7 +55,7 @@ async function getItemById(model, itemName, req, res, next) {
     // console.log(res[itemName])
     next();
   } catch (err) {
-    return res.status(500).json({ message: err.message });
+    return res.status(500).json({ message: 'Student Not Found!' });
   }
 }
 

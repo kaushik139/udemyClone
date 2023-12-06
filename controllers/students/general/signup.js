@@ -11,7 +11,7 @@ async function controller(req, res) {
     // console.log(newStudent);
     try {
         const saveStudent = await newStudent.save()
-        res.status(201).json(saveStudent + { message: "New Student Signup!" })
+        res.status(201).json({ message: "New Student Signup!" })
         console.log(chalk.bgRed.yellowBright('Registered!'));
         // console.log(saveStudent);
     } catch (err) {

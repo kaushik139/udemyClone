@@ -81,8 +81,4 @@ app.use('/admin', adminRouter)
 app.use('/images', express.static('public/Images'));
 app.use('/files', express.static('public/Files'));
 
-
-app.listen(process.env.port, () => {
-    console.log(chalk.red.bgYellowBright('Listening on Port 3000!' + Date().slice(15, 25)));
-})
-
+module.exports = app;

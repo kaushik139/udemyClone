@@ -1,6 +1,7 @@
 const instructor = require('../../models/instructor')
 
 async function controller(req, res) {
+
     const newInstructor = new instructor({
         name: req.body.name,
         email: req.body.email,

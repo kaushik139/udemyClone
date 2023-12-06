@@ -13,9 +13,9 @@ async function controller(req, res) {
 
         for (let i = 0; i < list.length; i++){
             const x =  courses.filter((course) => JSON.stringify(course.instructor) == JSON.stringify(list[i]._id) && course.status === "published");
-            const y = courses.filter((course) => JSON.stringify(course.instructor) === JSON.stringify(list[i]._id) && course.status !== "published");
+            // const y = courses.filter((course) => JSON.stringify(course.instructor) === JSON.stringify(list[i]._id) && course.status !== "published");
 
-            list[i].unpublishedCourses = y.length;
+            // list[i].unpublishedCourses = y.length;
             list[i].publishedCourses = x.length;
         }
         // console.log(list)

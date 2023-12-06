@@ -10,7 +10,7 @@ async function controller(req, res) {
         const saveStudent = await newStudent.save()
         res.status(201).json(saveStudent)
     } catch (err) {
-        res.status(400).json({ message: err.message })
+        res.status(400).json({ message: "Server Error" })
     }
 }
 

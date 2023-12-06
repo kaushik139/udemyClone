@@ -26,10 +26,6 @@ async function controller(req, res) {
       { new: true } // Options: return the updated document
     );
 
-    if (!updatedStudent) {
-      return res.status(404).json({ message: 'Student not found' });
-    }
-
     res.status(200).json({
       message: 'Updated!',
     });

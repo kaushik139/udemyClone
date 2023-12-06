@@ -15,7 +15,6 @@ const login = require('../controllers/students/general/login')
 const showAllCourses = require('../controllers/students/viewCourses/showAllCourses')
 const showMyCourses = require('../controllers/students/viewCourses/showMyCourses')
 
-const CheckItem = require('../controllers/students/checkBox/checkItem')
 const Purchase = require('../controllers/students/payment/purchase')
 
 
