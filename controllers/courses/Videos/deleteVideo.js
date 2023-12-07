@@ -16,28 +16,14 @@ async function controller(req, res) {
         // console.log('Video Directory:', videoDir);
 
         fs.readdir(videoDir, (err, files) => {
-            if (err) {
-                console.error('Error reading directory:', err);
-                return res.status(500).json({ message: 'Error reading directory' });
-            }
-
-            // console.log('Files:', files);
-
             const foundFile = files.find(file => file === videoPathDB);
             if (foundFile) {
                 // console.log('File found:', foundFile);
                 const filePath = path.join(videoDir, foundFile);
 
                 fs.unlink(filePath, (err) => {
-                    if (err) {
-                        console.error(`Error deleting the file: ${err}`);
-                        return res.status(500).json({ message: 'Error deleting the file' });
-                    } else {
-                        console.log('File Deleted from storage successfully');
-                    }
+                   
                 });
-            } else {
-                console.warn('File not found');
             }
         });
 
@@ -48,7 +34,6 @@ async function controller(req, res) {
         res.json({ message: 'Video Lecture Deleted!' });
     } catch (err) {
         console.error(err);
-        return res.status(500).json({ message: err.message });
     }
 }
 

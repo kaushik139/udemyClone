@@ -12,7 +12,7 @@ async function controller(req, res) {
             await res.courses.save();
 
             res.status(200).json({ message: 'Updated' });
-            console.log(chalk.bgWhiteBright('Full Description Updated!'));
+            // console.log(chalk.bgWhiteBright('Full Description Updated!'));
         } else {
             return res.status(400).json({ message: 'Missing Fields' });
         }

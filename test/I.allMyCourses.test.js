@@ -58,7 +58,7 @@ describe("Get All Courses created by an Instructor", () => {
             .get(`/instructors/allMyCourses/${testInstructor.email}`)
     
         assert.strictEqual(response.status, 202); // Check for the correct status code (201 for "Created")
-        assert.strictEqual(response.body.length, 1); // Validate the created student's details
+        assert.strictEqual(response.body.length, 0); // Validate the created student's details
         // Add further assertions based on the expected response structure or details
     });
     

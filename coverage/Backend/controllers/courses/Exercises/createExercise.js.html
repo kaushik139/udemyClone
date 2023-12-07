@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/10</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -96,42 +96,42 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">async function <span class="fstat-no" title="function not covered" >controller(</span>req, res) {
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">async function controller(req, res) {
     // console.log(req.body);
-    // console.log(res.courses.sections[req.body.index]);
+    // console.log(req.body.filePath);
     // console.log(res.courses.sections[req.body.index]);
     // console.log(req.body.title);
     // console.log(req.body.description);
     // console.log(req.body.index);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (req.body.title &amp;&amp; req.body.description &amp;&amp; typeof(req.body.index) === 'number') {</span>
+    // if (req.body.title &amp;&amp; req.body.description &amp;&amp; typeof(req.body.index) === 'number') {
         // console.log('i');
-<span class="cstat-no" title="statement not covered" >        if(req.body.filePath != '') <span class="cstat-no" title="statement not covered" >res.courses.sections[req.body.index].exercises.push({ title: req.body.title, description: req.body.description, filePath: req.body.filePath})</span></span>
-        else <span class="cstat-no" title="statement not covered" >res.courses.sections[req.body.index].exercises.push({ title: req.body.title, description: req.body.description })</span>
-    }
+        if(req.body.filePath != '') res.courses.sections[req.body.index].exercises.push({ title: req.body.title, description: req.body.description, filePath: req.body.filePath})
+        else res.courses.sections[req.body.index].exercises.push({ title: req.body.title, description: req.body.description, filePath: '' })
+    // }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >        await res.courses.save();</span>
-<span class="cstat-no" title="statement not covered" >        console.log('Saved!');</span>
+    try {
+        await res.courses.save();
+        console.log('Saved!');
         // console.log(res.courses);
-<span class="cstat-no" title="statement not covered" >        res.status(200).json({message: 'Exercise Added'})</span>
+        res.status(200).json({message: 'Exercise Added', course: res.courses})
     }
     catch (err) {
 <span class="cstat-no" title="statement not covered" >        console.log(err);</span>
@@ -145,7 +145,7 @@ module.exports = { controller };</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-06T13:07:31.196Z
+                at 2023-12-07T13:28:15.203Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

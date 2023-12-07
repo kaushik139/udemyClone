@@ -7,15 +7,19 @@ const range = require("range-parser");
 
 
 async function controller(req, res) {
+  // console.log(req.params.path);
+
   const targetFile = req.params.path;
     const videoFilePath = path.join(__dirname, '..', '..', '..', 'public/Videos', targetFile);
     
     const stat = fs.statSync(videoFilePath);
   const fileSize = stat.size;
 
+  console.log('rssssssssssssddddddddddddddddddddddddddssange');
   const { range: reqRange } = req.headers;
     const ranges = range(fileSize, reqRange, { combine: true });
-    
+  console.log('rssssssssssssssange');
+  
     if (ranges === -1) {
         // 416 Range Not Satisfiable
         res.status(416).end();

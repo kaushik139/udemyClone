@@ -3,10 +3,11 @@ const chalk = require('chalk');
 
 async function controller(req, res) {
     // console.log(req.file.path);
-    // console.log(req.file.filename);
+    console.log(req.file.filename);
     // console.log(req.file);
-    // console.log(req.body.sectionIndex);
-    // console.log(req.body.exerciseIndex);
+    // console.log(req.body);
+    console.log(';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;');
+    console.log(req.body.exerciseIndex);
 
     try {
         if (req.file.filename) {

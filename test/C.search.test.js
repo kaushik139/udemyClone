@@ -3,34 +3,26 @@ const assert = require('assert');
 const mongoose = require('mongoose');
 const app = require('../server'); // Import your server setup
 const courses = require('../models/courses');
-const Instructors = require('../models/instructor');
+const Instructors = require("../models/instructor");
 
-describe('Controller Tests', () => {
-    before(async () => {
-        // Connect to a testing database or setup a way to handle test data
-        // ...
-    });
+describe('Course->Search->search', () => {
+    let testInstructor;
+    let testCourse;
+    let testCourse2;
+    let testCourse3;
 
-    after(async () => {
-        // Clean up after tests (delete test data, close connections, etc.)
-        // ...
-    });
-
-    it('Searches courses by title', async () => {
-        // Create test data for courses and instructors
-        const testInstructor = await Instructors.create({
-            name: 'John Doe',
-            email: 'john@example.com', // Add an email field here
+    beforeEach(async () => {
+        testInstructor = await Instructors.create({
+            name: "John Doe",
+            email: "john@doe.com",
+            password: "qqqqq111"
         });
-        
-        const searchText = 'sam';
-
         testCourse = await courses.create({
-            title: 'Sample Course II',
+            title: 'Sample Course',
             description: {
                 miniDescription: 'Short description for the sample course',
             },
-            instructor: '656455a661b344fdc0c674ab', // Replace with an existing instructor ID
+            instructor: testInstructor._id, // Replace with an existing instructor ID
             category: 'Sample Category',
             price: {
                 basePrice: 100,
@@ -41,38 +33,51 @@ describe('Controller Tests', () => {
             stripePriceID: 'sample_stripe_price_id',
             status: 'published',
         });
-
-        const req = {
-            params: {
-                text: 'Sample', // Search text
+        testCourse2 = await courses.create({
+            title: 'Sample Course II',
+            description: {
+                miniDescription: 'Short description for the sample course II',
             },
-        };
-
-        const res = {
-            statusCode: 0,
-            body: null,
-            status: function(code) {
-                this.statusCode = code;
-                return this;
+            instructor: testInstructor._id, // Replace with an existing instructor ID
+            category: 'Sample Category',
+            price: {
+                basePrice: 100,
+                tax: 10,
+                finalAmount: 110,
             },
-            json: function(data) {
-                this.body = data;
+            stripeProductID: 'sample_stripe_product_id',
+            stripePriceID: 'sample_stripe_price_id',
+            status: 'published',
+        });
+        testCourse3 = await courses.create({
+            title:'Course III',
+            description: {
+                miniDescription: 'Short description for the sample Lecture',
             },
-        };
+            instructor: testInstructor._id, // Replace with an existing instructor ID
+            category: 'Sample Category',
+            price: {
+                basePrice: 100,
+                tax: 10,
+                finalAmount: 110,
+            },
+            stripeProductID: 'sample_stripe_product_id',
+            stripePriceID: 'sample_stripe_price_id',
+            status: 'published',
+        });
+    });
 
+    afterEach(async () => {
+        await courses.deleteMany();
+    });
+
+    it('Searches courses by title', async () => {        
+        const searchText = 'sam';
         const response = await request(app)
-            .get(`/search/${searchText}`)
+            .get(`/courses/search/${searchText}`)
 
-        assert.strictEqual(res.statusCode, 200);
-        assert(Array.isArray(res.body.processedResults));
-        assert.notStrictEqual(res.body.processedResults.length, 0);
-
-        const firstResult = res.body.processedResults[0];
-        assert(Object.prototype.hasOwnProperty.call(firstResult, 'id'));
-        assert(Object.prototype.hasOwnProperty.call(firstResult, 'title'));
-        assert(Object.prototype.hasOwnProperty.call(firstResult, 'instructor'));
-
-        // Add more assertions as needed
+            assert.strictEqual(response.statusCode, 200);  
+            assert.strictEqual(response._body.processedResults.length, 2);  
     });
 
     // Add more test cases to cover different scenarios

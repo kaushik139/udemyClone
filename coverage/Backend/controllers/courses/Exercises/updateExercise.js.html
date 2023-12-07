@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.38% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/13</span>
+                <span class='fraction'>12/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>12/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.38% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/13</span>
+                <span class='fraction'>12/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -108,21 +108,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -131,9 +131,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const chalk = require('chalk')
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >controller(</span>req, res) {
+async function controller(req, res) {
     // console.log(chalk.red(req.body.filePath));
-    // console.log(req.body.sectionIndex);
+    // console.log(typeof(req.body.sectionIndex));
     // console.log(req.body.exerciseIndex);
     // console.log(req.body.title);
     // console.log(req.body.description);
@@ -141,21 +141,21 @@ async function <span class="fstat-no" title="function not covered" >controller(<
     // console.log(res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex]);
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (req.body.title &amp;&amp; typeof(req.body.sectionIndex) === 'number' &amp;&amp; typeof(req.body.exerciseIndex) === 'number') {</span>
-<span class="cstat-no" title="statement not covered" >        res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex].title = req.body.title</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (req.body.title &amp;&amp; typeof (req.body.sectionIndex) === 'number' &amp;&amp; typeof (req.body.exerciseIndex) === 'number') {
+        res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex].title = req.body.title;
     }
-<span class="cstat-no" title="statement not covered" >    if (req.body.description &amp;&amp; typeof(req.body.sectionIndex) === 'number' &amp;&amp; typeof(req.body.exerciseIndex) === 'number') {</span>
-<span class="cstat-no" title="statement not covered" >        res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex].description = req.body.description</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (req.body.description &amp;&amp; typeof (req.body.sectionIndex) === 'number' &amp;&amp; typeof (req.body.exerciseIndex) === 'number') {
+        res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex].description = req.body.description;
     }
-<span class="cstat-no" title="statement not covered" >    if (req.body.filePath != '' &amp;&amp; typeof (req.body.sectionIndex) === 'number' &amp;&amp; typeof (req.body.exerciseIndex) === 'number') {</span>
-<span class="cstat-no" title="statement not covered" >        res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex].filePath = req.body.filePath</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (req.body.filePath != '' &amp;&amp; typeof (req.body.sectionIndex) === 'number' &amp;&amp; typeof (req.body.exerciseIndex) === 'number') {
+        res.courses.sections[req.body.sectionIndex].exercises[req.body.exerciseIndex].filePath = req.body.filePath
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >        await res.courses.save();</span>
-<span class="cstat-no" title="statement not covered" >        console.log(chalk.bgWhite.red('Updated!'));</span>
+    try {
+        await res.courses.save();
+        console.log(chalk.bgWhite.red('Updated!'));
         // console.log(res.courses);
-<span class="cstat-no" title="statement not covered" >        res.status(200).json({message: 'Exercise Updated'})</span>
+        res.status(200).json({message: 'Exercise Updated'})
     }
     catch (err) {
 <span class="cstat-no" title="statement not covered" >        console.log(err);</span>
@@ -169,7 +169,7 @@ module.exports = { controller };</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-06T13:07:31.196Z
+                at 2023-12-07T13:28:15.203Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

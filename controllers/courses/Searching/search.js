@@ -4,7 +4,7 @@ const Fuse = require('fuse.js');
 const chalk = require('chalk')
 
 async function controller(req, res) {
-    // console.log(req.params.text)
+    console.log(req.params.text)
 
     const fuseOptions = {
         isCaseSensitive: false,
@@ -29,9 +29,9 @@ async function controller(req, res) {
     const list = await courses.find({status:"published"});
     const fuse = new Fuse(list, fuseOptions);
     const searchPattern = req.params.text;
-
+    
     const results = fuse.search(searchPattern);
-
+    
     const filteredResults = results.map(item => {
         return {
             id: item.item._id,
@@ -51,10 +51,8 @@ async function controller(req, res) {
             instructor: instructor[0].name
         })
     }
+
     // console.log(chalk.yellowBright('Processed: ' + processedResults[0].id));
-
-
-
     try {
         res.status(200).json({ processedResults })
     } catch (err) {

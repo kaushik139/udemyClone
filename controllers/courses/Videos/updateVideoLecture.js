@@ -10,7 +10,7 @@ async function controller(req, res) {
     }
 
     if (req.body.videoPath !== '' && typeof (req.body.sectionIndex) === 'number' && typeof (req.body.videoIndex) === 'number') {
-        console.log(chalk.red('in'));
+        // console.log(chalk.red('in'));
         res.courses.sections[req.body.sectionIndex].videos[req.body.videoIndex].path = req.body.videoPath;
     }
 

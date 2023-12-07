@@ -8,7 +8,6 @@ const student = require("../models/student");
 
 describe("Stripe Checkout Controller", () => {
     let course;
-    let stripeCheckoutStub;
     let testCourses
     let testStudent;
     beforeEach(async () => {

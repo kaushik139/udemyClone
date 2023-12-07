@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.27% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/11</span>
+                <span class='fraction'>10/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.27% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/11</span>
+                <span class='fraction'>10/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,7 +90,11 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -99,17 +103,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -120,23 +128,27 @@
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const courses = require('../../../models/courses')
 const chalk = require('chalk')
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >controller(</span>req, res) {
+async function controller(req, res) {
 &nbsp;
     // console.log(req.body)
     // console.log(chalk.bgBlueBright(req.body.index))
     // console.log(chalk.red(res.courses.sections[req.body.index]));
+    // console.log(res.courses.sections);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (req.body.sectionTitle) {</span>
-<span class="cstat-no" title="statement not covered" >        res.courses.sections[req.body.index].sectionTitle = req.body.sectionTitle;</span>
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (req.body.sectionTitle) {
+        res.courses.sections[req.body.index].sectionTitle = req.body.sectionTitle;
     }
-<span class="cstat-no" title="statement not covered" >    if (req.body.sectionDescription) {</span>
-<span class="cstat-no" title="statement not covered" >        res.courses.sections[req.body.index].sectionDesctiption = req.body.sectionDescription</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (req.body.sectionDescription) {
+        res.courses.sections[req.body.index].sectionDesctiption = req.body.sectionDescription
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >        res.courses.save();</span>
+    // console.log(res.courses.sections);
+&nbsp;
+    try {
+        res.courses.save();
         // console.log(chalk.yellowBright(res.courses.sections));
-<span class="cstat-no" title="statement not covered" >        res.status(200).json({</span>
+        res.status(200).json({
             message: "Course Updated!", updatedCourse: res.courses
         })
     } catch (err) {
@@ -151,7 +163,7 @@ module.exports = { controller }</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-06T13:07:31.196Z
+                at 2023-12-07T13:28:15.203Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

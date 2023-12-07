@@ -3,7 +3,8 @@ const chalk = require('chalk')
 
 async function controller(req, res) {
 
-    // console.log(req.body)
+    // console.log(req.body.sectionTitle);
+    // console.log(req.body.sectionDescription);
     // console.log(chalk.red(res.courses));
 
     if (req.body.sectionTitle) {
@@ -12,6 +13,8 @@ async function controller(req, res) {
     if (req.body.sectionDescription) {
         res.courses.sections[res.courses.sections.length - 1].sectionDesctiption = req.body.sectionDescription
     }
+
+    // console.log(chalk.red(res.courses.sections));
 
     try {
         res.courses.save();

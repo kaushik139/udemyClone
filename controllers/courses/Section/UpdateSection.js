@@ -6,6 +6,8 @@ async function controller(req, res) {
     // console.log(req.body)
     // console.log(chalk.bgBlueBright(req.body.index))
     // console.log(chalk.red(res.courses.sections[req.body.index]));
+    // console.log(res.courses.sections);
+
 
     if (req.body.sectionTitle) {
         res.courses.sections[req.body.index].sectionTitle = req.body.sectionTitle;
@@ -13,6 +15,8 @@ async function controller(req, res) {
     if (req.body.sectionDescription) {
         res.courses.sections[req.body.index].sectionDesctiption = req.body.sectionDescription
     }
+
+    // console.log(res.courses.sections);
 
     try {
         res.courses.save();

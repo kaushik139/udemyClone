@@ -6,7 +6,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 async function controller(req, res) {
     // console.log(chalk.green.bgRed(req.body.courseID + '  :qq'));
-    // console.log(req.body.title);
+    console.log(req.body);
     
     //creating new
     if (req.body.courseID === '') {
