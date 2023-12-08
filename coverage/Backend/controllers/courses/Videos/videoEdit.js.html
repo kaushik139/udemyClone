@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.05% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/19</span>
+                <span class='fraction'>15/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.05% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/19</span>
+                <span class='fraction'>15/18</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,37 +99,49 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,34 +151,40 @@
 const chalk = require('chalk');
 const path = require('path');
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >controller(</span>req, res) {
-<span class="cstat-no" title="statement not covered" >    console.log(';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;');</span>
-<span class="cstat-no" title="statement not covered" >    console.log(req.file.path);</span>
+async function controller(req, res) {
+    // console.log(req.file.path);
+    // console.log(chalk.yellowBright(res.courses.sections[req.body.sectionIndex].videos[req.body.videoIndex].path));
     // console.log(chalk.yellowBright(req.file.filename));
     // console.log(req.file);
-<span class="cstat-no" title="statement not covered" >    console.log(req.body.sectionIndex);</span>
-<span class="cstat-no" title="statement not covered" >    console.log(req.body.videoIndex);</span>
+    // console.log(req.body.sectionIndex);
+    // console.log(req.body.videoIndex);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >fs.readdir(path.join(__dirname,'..','..','..','public/Videos'), <span class="fstat-no" title="function not covered" >(e</span>rr, files) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (err) {} else {</span>
-<span class="cstat-no" title="statement not covered" >        files.forEach(<span class="fstat-no" title="function not covered" >(f</span>ile) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            if (file === res.courses.sections[req.body.sectionIndex].videos[req.body.videoIndex].path) {</span>
-                // console.log('found');
-<span class="cstat-no" title="statement not covered" >                fs.unlink(path.join(__dirname,'..','..','..',`public/Videos/${file}`));</span>
+    fs.readdir(path.join(__dirname, '..', '..', '..', 'public/Videos'), (err, files) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) { } else {
+                files.forEach((file) =&gt; {
+                    // console.log(file);
+                    if (file === res.courses.sections[req.body.sectionIndex].videos[req.body.videoIndex].path) {
+                        // console.log('found');
+                        fs.unlink(path.join(__dirname, '..', '..', '..', 'public/Videos', file), (err) =&gt; {
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                              console.error('Error deleting file:', err);</span>
+<span class="cstat-no" title="statement not covered" >                              return;</span>
+                            }
+                            console.log('File deleted successfully:', file);
+                          });
+                    }
+                });
             }
         });
-    }
-});
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >        if (req.file.filename) {</span>
-<span class="cstat-no" title="statement not covered" >            res.status(200).json({ message: 'Updated Video File', path: req.file.filename});</span>
-<span class="cstat-no" title="statement not covered" >            console.log(chalk.whiteBright('Video File Updated!'));</span>
+    
+    try {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (req.file.filename) {
+            res.status(200).json({ message: 'Updated Video File', path: req.file.filename});
+            console.log(chalk.yellowBright('Video File Updated!'));
         }
 &nbsp;
     } catch (err) {
 <span class="cstat-no" title="statement not covered" >        console.warn(err);</span>
-<span class="cstat-no" title="statement not covered" >        return res.status(500).json({ message: err.message });</span>
     }
 }
 &nbsp;
@@ -178,7 +196,7 @@ module.exports = { controller };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-07T13:28:15.203Z
+                at 2023-12-08T13:25:38.922Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

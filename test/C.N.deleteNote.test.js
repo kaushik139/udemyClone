@@ -5,7 +5,7 @@ const app = require('../server'); // Import your server setup
 const courses = require('../models/courses');
 const Instructors = require("../models/instructor");
 
-describe('Courses->Videos->Get current Video', () => {
+describe('Courses->Notes->Delete Note   ', () => {
     let testInstructor;
     let testCourse;
 
@@ -28,18 +28,20 @@ describe('Courses->Videos->Get current Video', () => {
                 finalAmount: 110,
             },
             sections: [
-                        {
-                          exercises: [],
-                          sectionDesctiption: 'Sample Description',
-                          sectionTitle: 'Section 123',
+                {
                     videos: [
                         {
-                            title: 'video 1',
-                            path: '20231026095951620SampleVideo2.mp4'
-                              }
-                          ]
+                            title: 'video Title',
+                            notes: [
+                                {
+                                    id: '6564554f61b344fdc0c6749f',
+                                    note: 'Sample Note',
+                                }
+                            ],
                         }
-                      ],
+                    ],
+                }
+            ],
             stripeProductID: 'sample_stripe_product_id',
             stripePriceID: 'sample_stripe_price_id',
             status: 'published',
@@ -51,14 +53,13 @@ describe('Courses->Videos->Get current Video', () => {
         await Instructors.deleteMany();
     });
 
-    it('Fetches current Video', async function () {  
-        const path = '20231026095951620SampleVideo2.mp4';
-
+    it('Deletes a note in a course', async () => {        
         const response = await request(app)
-            .get(`/courses/getCurrentVideo/${path}`)
+            .post(`/courses/deleteNotes/${testCourse._id}`)
+        .send({sectionIndex: '0', viewType: 'videos', viewIndex: 0, id: '6564554f61b344fdc0c6749f', noteID: testCourse.sections[0].videos[0].notes[0]._id})
 
             assert.strictEqual(response.statusCode, 200);  
-            assert.strictEqual(response._body.message, 'Video Created!');  
+            assert.strictEqual(response._body, 'Note Deleted!');  
     });
 
     // Add more test cases to cover different scenarios

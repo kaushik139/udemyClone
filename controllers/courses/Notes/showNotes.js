@@ -10,7 +10,6 @@ async function controller(req, res) {
             const UserNotes = Notes.filter((note) => {
                 return note.studentID == req.body.id
             })
-
             res.status(200).json(UserNotes);
         }
         catch(err){console.error(err);}

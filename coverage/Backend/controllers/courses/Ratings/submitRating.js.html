@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">9.09% </span>
+                <span class="strong">95.45% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/22</span>
+                <span class='fraction'>21/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">77.77% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>7/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10% </span>
+                <span class="strong">95% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/20</span>
+                <span class='fraction'>19/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -107,34 +107,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,37 +143,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const chalk = require('chalk')
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >controller(</span>req, res) {
+async function controller(req, res) {
     // console.log(req.body);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (req.body.rating &amp;&amp; req.body.text &amp;&amp; req.body.id) {</span>
-<span class="cstat-no" title="statement not covered" >        try {</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (req.body.rating &amp;&amp; req.body.text &amp;&amp; req.body.id) {
+        try {
            
-            const Index = <span class="cstat-no" title="statement not covered" >res.courses.rating.ratings.findIndex(<span class="fstat-no" title="function not covered" >ob</span>j =&gt; <span class="cstat-no" title="statement not covered" >obj.studentID == String(req.body.id))</span>;</span>
-<span class="cstat-no" title="statement not covered" >            if (Index &gt; -1) {</span>
-<span class="cstat-no" title="statement not covered" >                res.courses.rating.ratings[Index].rated = req.body.rating;</span>
-<span class="cstat-no" title="statement not covered" >                res.courses.rating.ratings[Index].text = req.body.text;</span>
+            const Index = res.courses.rating.ratings.findIndex(obj =&gt; obj.studentID == String(req.body.id));
+            if (Index &gt; -1) {
+                res.courses.rating.ratings[Index].rated = req.body.rating;
+                res.courses.rating.ratings[Index].text = req.body.text;
             }
             else {
-<span class="cstat-no" title="statement not covered" >                res.courses.rating.ratings.push({</span>
+                res.courses.rating.ratings.push({
                     studentID: req.body.id,
                     rated: req.body.rating,
                     text: req.body.text
                 });
             }
-            const loop = <span class="cstat-no" title="statement not covered" >res.courses.rating.ratings.length;</span>
-            let ratingSum = <span class="cstat-no" title="statement not covered" >0;</span>
-            let avgRating = <span class="cstat-no" title="statement not covered" >0;</span>
-<span class="cstat-no" title="statement not covered" >            if (loop &gt; -1) {</span>
-<span class="cstat-no" title="statement not covered" >                for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; loop; i++){</span>
-<span class="cstat-no" title="statement not covered" >                    ratingSum += res.courses.rating.ratings[i].rated;</span>
+            const loop = res.courses.rating.ratings.length;
+            let ratingSum = 0;
+            let avgRating = 0;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (loop &gt; -1) {
+                for (let i = 0; i &lt; loop; i++){
+                    ratingSum += res.courses.rating.ratings[i].rated;
                 }
-<span class="cstat-no" title="statement not covered" >                avgRating = ratingSum / loop;</span>
+                avgRating = ratingSum / loop;
             }
-<span class="cstat-no" title="statement not covered" >            res.courses.rating.netRating = avgRating;</span>
+            res.courses.rating.netRating = avgRating;
         
-<span class="cstat-no" title="statement not covered" >            res.courses.save();</span>
-<span class="cstat-no" title="statement not covered" >            res.status(200).json('Ratings Saved!')</span>
+            res.courses.save();
+            res.status(200).json('Ratings Saved!')
 &nbsp;
        }catch(err){<span class="cstat-no" title="statement not covered" >console.error(err);}</span>
     }
@@ -187,7 +187,7 @@ module.exports = {controller}</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-07T13:28:15.203Z
+                at 2023-12-08T13:25:38.922Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

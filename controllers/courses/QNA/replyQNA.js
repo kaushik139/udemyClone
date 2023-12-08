@@ -20,7 +20,6 @@ async function controller(req, res) {
             res.status(200).json('Reply Added')
          } catch (err) {
             console.error(err);
-            res.status(500).json('Server Error')
         }
 
 

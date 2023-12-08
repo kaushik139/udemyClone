@@ -11,7 +11,6 @@ async function controller(req, res) {
             res.status(200).json('Deleted!')
         } catch (err) {
             console.error(err);
-            res.status(500).json(err)
         }
     }
 }

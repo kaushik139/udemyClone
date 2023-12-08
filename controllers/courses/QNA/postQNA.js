@@ -6,8 +6,10 @@ async function controller(req, res) {
     // console.log(req.body);
     // console.log(chalk.red(res.courses.sections[req.body.sectionIndex][req.body.viewType][req.body.viewIndex].QnA));
 
-    if (req.body.querry !== '' && req.body.sectionIndex && req.body.viewIndex && req.body.viewType && req.body.id) {
+    if (req.body.querry != '' && req.body.sectionIndex && req.body.viewIndex && req.body.viewType && req.body.id) {
+        console.log('if');
         try {
+            console.log('try');
             res.courses.sections[req.body.sectionIndex][req.body.viewType][req.body.viewIndex].QnA.push({
                 querry: {
                     studentID: req.body.id,
@@ -20,10 +22,14 @@ async function controller(req, res) {
         }
         catch (err) {
             console.error(err);
-            res.status(500).json('Error saving Querry!')
+            // res.status(500).json('Error saving Querry!')
         }
     }
-    else console.error('Missing Data');
+    else {
+        console.error('Missing Data');
+        res.status(500).json('Missing Data!')
+
+    }
 
 }
 

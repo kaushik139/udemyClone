@@ -1,13 +1,17 @@
 const fs = require('fs');
+const path = require('path');
 const request = require('supertest');
 const assert = require('assert');
 const app = require('../server'); // Import your server setup
 const Instructors = require('../models/instructor')
 const courses = require('../models/courses')
+const chalk = require('chalk')
+
 
 describe('Courses-> Videos-> Video Edit', () => {
     let testInstructor;
     let testCourse;
+    let newFile;
 
     beforeEach(async () => {
         testInstructor = await Instructors.create({
@@ -28,18 +32,18 @@ describe('Courses-> Videos-> Video Edit', () => {
                 finalAmount: 110,
             },
             sections: [
-                        {
-                          exercises: [],
-                          sectionDesctiption: 'Sample Description',
-                          sectionTitle: 'Section 123',
+                {
+                    exercises: [],
+                    sectionDesctiption: 'Sample Description',
+                    sectionTitle: 'Section 123',
                     videos: [
                         {
                             title: 'abc',
-                            path: 'path123.mkv'
-                              }
-                          ]
+                            path: 'Test_Video copy.mp4'
                         }
-                      ],
+                    ]
+                }
+            ],
             stripeProductID: 'sample_stripe_product_id',
             stripePriceID: 'sample_stripe_price_id',
             status: 'published',
@@ -49,30 +53,47 @@ describe('Courses-> Videos-> Video Edit', () => {
     afterEach(async () => {
         await courses.deleteMany();
         await Instructors.deleteMany();
-    });
+
+        fs.copyFile(process.env.copyVideo, process.env.destinationVideo, (err) => {
+            if (err) {
+                console.error('Error duplicating file:', err);
+                return;
+            }
+        });
+
+        // deletionPath = process.env.testVideoDeletionPath + newFile;
+        
+        fs.unlink(path.join(process.env.testVideoDeletionPath, newFile), (err) => {
+            if (err) {
+              console.error('Error deleting file:', err);
+              return;
+            }
+            console.log('File deleted successfully:', newFile);
+          });
+        });
 
     it('should update video file successfully', async () => {
         // Mock course data
-        const sampleSectionIndex = 0; // Sample section index
-        const sampleVideoIndex = 0; // Sample video index
-        const sampleVideoTitle = 'Sample Video'; // Sample video title
-        const sampleVideoPath = 'sampleVideo.mp4'; // Sample video path
+        const sampleVideoTitle = 'sampleVideo.mp4'; // Sample video title
+        const sampleVideoPath = process.env.testVideo; // Sample video path
+        const videoStream = fs.createReadStream(sampleVideoPath);
 
-        // Mock the request to simulate the controller
+        const formData = {
+            fileInput: videoStream,
+            sectionIndex: '0',
+            videoIndex: '0',
+        };
         const response = await request(app)
-            .patch(`/courses/videoEdit/${testCourse._id}`)
-            .send({
-                sectionIndex: sampleSectionIndex,
-                videoIndex: sampleVideoIndex,
-                videoTitle: sampleVideoTitle,
-                path: sampleVideoPath,
-                filename: sampleVideoPath,
-            });
+            .patch(`/courses/videoEdit/${testCourse._id}`) // Adjust the endpoint to match your route setup
+            .attach('fileInput', videoStream) // Attach the file stream
+            .field('sectionIndex', '0')
+            .field('videoIndex', '0');
 
+            newFile = response.body.path;
         // Assert the response
         assert.strictEqual(response.status, 200); // Check for successful status code
-        assert.strictEqual(response.body.message, 'Video Updated!'); // Check for the expected message
-
+        assert.strictEqual(response.body.message, 'Updated Video File'); // Check for the expected message
+        
         // You can add further assertions based on the response structure or details
     });
 });

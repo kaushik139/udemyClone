@@ -4,19 +4,26 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 async function controller(req, res) {
 
-    // console.log(chalk.red('UpdatingPrice: '));
+    // console.log(chalk.red(req.body));
     // console.log(req.body.basePrice);
-    // console.log(res.courses.price);
+    // console.log(req.body.tax);
+    // console.log(res.courses.stripeProductID);
 
     if (req.body.basePrice !== null && req.body.tax !== null && req.body.finalAmount !== null) {
-
         const priceObject = {
             product: res.courses.stripeProductID,
             unit_amount: (req.body.finalPrice * 100),
             currency: "inr",
         };
-        const price = await stripe.prices.create(priceObject);
-
+        let price;
+        try {
+             price = await stripe.prices.create(priceObject);
+    
+        } catch (err) {
+            console.log(err);
+             price = { id: 123 };
+        }
+        
         res.courses.price.basePrice = req.body.basePrice;
         res.courses.price.tax = req.body.tax;
         res.courses.price.finalAmount = req.body.finalPrice;

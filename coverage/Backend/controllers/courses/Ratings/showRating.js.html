@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">94.44% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/18</span>
+                <span class='fraction'>17/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">93.75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/16</span>
+                <span class='fraction'>15/16</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -106,31 +106,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,35 +139,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const chalk = require('chalk')
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >controller(</span>req, res) {
+async function controller(req, res) {
     // console.log(res.courses);  
     // console.log(req.body.id);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (req.body.id) {</span>
-<span class="cstat-no" title="statement not covered" >        try {</span>
-            const findUserRating = <span class="cstat-no" title="statement not covered" >res.courses.rating.ratings.find(<span class="fstat-no" title="function not covered" >ob</span>j =&gt; <span class="cstat-no" title="statement not covered" >obj.studentID == String(req.body.id))</span>;</span>
-            const UserRating = <span class="cstat-no" title="statement not covered" >findUserRating ? findUserRating : null;</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (req.body.id) {
+        try {
+            const findUserRating = res.courses.rating.ratings.find(obj =&gt; obj.studentID == String(req.body.id));
+            const UserRating = findUserRating ? findUserRating : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
             // console.log(UserRating);
 &nbsp;
-            const ratings = <span class="cstat-no" title="statement not covered" >res.courses.rating.ratings;</span>
+            const ratings = res.courses.rating.ratings;
 &nbsp;
-            let counts = <span class="cstat-no" title="statement not covered" >{};</span>
+            let counts = {};
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            for (let i = <span class="cstat-no" title="statement not covered" >1;</span> i &lt;= 5; i++) {</span>
-<span class="cstat-no" title="statement not covered" >                counts[`rated_${i}`] = ratings.reduce(<span class="fstat-no" title="function not covered" >(s</span>um, obj) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >                    if (obj.rated === i) {</span>
-<span class="cstat-no" title="statement not covered" >                        return sum + 1;</span>
+            for (let i = 1; i &lt;= 5; i++) {
+                counts[`rated_${i}`] = ratings.reduce((sum, obj) =&gt; {
+                    if (obj.rated === i) {
+                        return sum + 1;
                     }
-<span class="cstat-no" title="statement not covered" >                    return sum;</span>
+                    return sum;
                 }, 0);
             }
-            const totalRatings = <span class="cstat-no" title="statement not covered" >counts.rated_1 + counts.rated_2 + counts.rated_3 + counts.rated_4 + counts.rated_5;</span>
+            const totalRatings = counts.rated_1 + counts.rated_2 + counts.rated_3 + counts.rated_4 + counts.rated_5;
             // console.log(counts);
             // console.log(totalRatings);
             // console.log(UserRating);
             // console.log(res.courses.rating.netRating);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            res.status(200).json({ UserRating: UserRating, counts: counts, totalRatings: totalRatings, netRated: res.courses.rating.netRating })</span>
+            res.status(200).json({ UserRating: UserRating, counts: counts, totalRatings: totalRatings, netRated: res.courses.rating.netRating })
 &nbsp;
         } catch (err) { <span class="cstat-no" title="statement not covered" >console.error(err); </span>}
     }
@@ -181,7 +181,7 @@ module.exports = { controller }</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-07T13:28:15.203Z
+                at 2023-12-08T13:25:38.922Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

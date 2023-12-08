@@ -16,7 +16,6 @@ async function controller(req, res) {
 
     } catch (err) {
         console.warn(err);
-        return res.status(500).json({ message: err.message });
     }
 }
 
